@@ -37,6 +37,10 @@ function category_info($categoryid){//Get category information in array
 	$res=mysql_query("SELECT * FROM cu_categories WHERE id='$categoryid'") or die(mysql_error());
 	return $row=mysql_fetch_array($res);
 }
+function content_info($contentid){//Get category information in array
+	$res=mysql_query("SELECT * FROM cu_contents WHERE id='$contentid'") or die(mysql_error());
+	return $row=mysql_fetch_array($res);
+}
 
 function access_info($access_id){//get access information in array
 	$res=mysql_query("SELECT * FROM cu_access WHERE access='$access_id'") or die(mysql_error());
@@ -455,7 +459,7 @@ echo'<table class="table table-hover" id="no-more-tables">
 				<th>Category</th>
                 <th width="110">Published Date</th>
 				<th width="90">Published</th>
-                <th width="95"></th>
+                <th width=""></th>
               </tr>
               </thead>
               <tbody>';
@@ -475,7 +479,7 @@ echo'<table class="table table-hover" id="no-more-tables">
 			  <td data-title="Category">'.$cat['name'].'</td>
               <td data-title="Published Date">'.date("d-m-Y",strtotime($row['created'])).'</td>
 			  <td data-title="Published"><span class="label ';if($row['published']=="published"){ echo'label-success';}elseif($row['published']=="published"){echo'';}elseif($row['unpublished']=="draft"){echo 'label-info';} echo'">'.ucwords($row['published']).'</span></td>
-              <td ><a href="?action=edit&id='.$row['id'].'" class="btn" title="Edit" ><i class="icon-edit"></i></a> <a href="?action=delete&id='.$row['id'].'" class="btn " title="Delete" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-trash"></i></a></td>
+              <td ><a href="?action=edit&id='.$row['id'].'" class="btn btn-small" title="Edit" ><i class="icon-edit"></i></a> <a href="content-images.php?action=add-new&conid='.$row['id'].'" class="btn btn-small" title="Add images" > <i class="icon-plus"></i> <i class="icon-picture"></i> </a> <a href="?action=delete&id='.$row['id'].'" class="btn btn-small" title="Delete" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-trash"></i></a></td>
 			  
               </tr>';
 	}
@@ -1328,7 +1332,7 @@ $sql="SELECT * FROM cu_content_frontpage WHERE content_id='$value'";
 		}
 }
 
-function load_gallery($value=''){//load the list of gallery available
+function load_gallery($value=''){//load the list options of gallery available
 $sql="SELECT * FROM cu_gallery";
 	$res=mysql_query($sql) or die(mysql_error());
 	echo '<option value="">Select</option>';
@@ -1342,7 +1346,7 @@ $sql="SELECT * FROM cu_gallery";
 }
 
 
-function load_section($value=''){//load the list of sections available
+function load_section($value=''){//load the list options of sections  available
 $sql="SELECT * FROM cu_sections";
 	$res=mysql_query($sql) or die(mysql_error());
 	echo '<option value="">Select</option>';
@@ -1355,8 +1359,21 @@ $sql="SELECT * FROM cu_sections";
 	}
 }
 
-function load_categories($value){//load the list of categories available
+function load_categories($value){//load the list options of categories available
 $sql="SELECT * FROM cu_categories";
+	$res=mysql_query($sql) or die(mysql_error());
+	echo '<option value="">Select</option>';
+	while($row=mysql_fetch_array($res)){
+		echo '<option value="'.$row['id'].'"';
+		if($value == $row['id']){
+			echo' selected="selected"';
+		}
+		echo'>'.$row['name'].'</option>';
+	}
+}
+
+function load_contents($value){//load the list options of categories available
+$sql="SELECT * FROM cu_contents";
 	$res=mysql_query($sql) or die(mysql_error());
 	echo '<option value="">Select</option>';
 	while($row=mysql_fetch_array($res)){

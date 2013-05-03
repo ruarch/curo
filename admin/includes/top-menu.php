@@ -13,7 +13,13 @@
             </p>';?>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li <?php if(@$page=='contents'){ echo 'class="active"';}?>><a href="contents.php">Contents</a></li>
+              <li class="dropdown <?php if(@$page=='contents'){ echo 'active';}?>">
+                <a href="contents.php" class="dropdown-toggle" data-toggle="dropdown">Content <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li <?php if(@$page=='contents'){ echo 'class="active"';}?>><a href="contents.php">Content List</a></li>
+                  <li <?php if(@$page=='content-images'){ echo 'class="active"';}?>><a href="content-images.php">Images</a></li>
+                </ul>
+              </li>
                 <li class="dropdown <?php if(@$page=='sections'){ echo 'active';}?>">
                 <a href="sections.php" class="dropdown-toggle" data-toggle="dropdown">Sections <b class="caret"></b></a>
                 <ul class="dropdown-menu">

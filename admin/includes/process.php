@@ -269,7 +269,7 @@ $del_id=clean_input($_GET['id']);
 	}
 
 
-if($_GET['action']=='delete' && $page=='section-images'){//Delete a particular  image
+if($_GET['action']=='delete' && ($page=='section-images'|| $page=='category-images' || $page=='content-images')){//Delete a particular  image
 
 $del_id=clean_input($_GET['id']);
 		$del_res=mysql_query("DELETE FROM cu_con_images WHERE image_id='$del_id'") or die(mysql_error());
@@ -733,7 +733,6 @@ if(isset($_POST['con_images_btn'])){// Process Con Images
 			$image='';
 			$image_order=clean_input($_POST['image_order']);
 			$moduleinput=clean_input($_POST['module']);
-			$image_con=clean_input($_POST['image_con']);
 			@session_start();
 			$added_by=$_SESSION['userid_admin'];
 				$action='';

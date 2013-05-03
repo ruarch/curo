@@ -1,4 +1,4 @@
-<?php if($page=='contents'){?>     
+<?php if($page=='contents' || $page=='content-images'){?>     
       <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
@@ -15,7 +15,9 @@
                   <li class="divider"></li>
                   <li class="nav-header">Listing By category</li>
                   <?php load_content_by_category('contents.php',@$_GET['catid']);?>
-                  
+                  <li class="divider"></li>
+                  <li class="nav-header">Content Images</li>
+                  <li <?php if(@$page=='content-images'){ echo 'class="active"';}?>><a href="content-images.php"><i class="icon-chevron-right"></i> View Images</a></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
