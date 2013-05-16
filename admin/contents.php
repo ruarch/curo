@@ -39,6 +39,21 @@ if(isset($_POST['content_search_btn'])){
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <script type="text/javascript">
+function checkall(){
+
+for (var i = 0; i < document.frmaction.elements.length; i++) {
+
+var e = document.frmaction.elements[i];
+
+if ((e.name != 'chkall') && (e.type == 'checkbox')) {
+
+e.checked = document.frmaction.chkall.checked;
+
+}}}
+
+
+</script>  
   </head>
 
   <body data-spy="scroll" data-target=".bs-docs-sidebar">
@@ -71,7 +86,8 @@ if(isset($_POST['content_search_btn'])){
 		$('#myTab a').click(function (e) {
   e.preventDefault();
   $(this).tab('show');
-})
+ 
+}) 
 		$('#pdp1').datepicker();
 	 var $window = $(window)
 
@@ -95,9 +111,11 @@ if(isset($_POST['content_search_btn'])){
             });
 	});
 	</script>
+
     <script type="text/javascript">
 	CKEDITOR.replace( 'editor1',
     {
+      
         filebrowserBrowseUrl : 'includes/ckfinder/ckfinder.html',
         filebrowserImageBrowseUrl : 'includes/ckfinder/ckfinder.html?Type=Images',
         filebrowserFlashBrowseUrl : 'includes/ckfinder/ckfinder.html?Type=Flash',
@@ -107,5 +125,6 @@ if(isset($_POST['content_search_btn'])){
     });
 	
 	</script>
+  
   </body>
 </html>
