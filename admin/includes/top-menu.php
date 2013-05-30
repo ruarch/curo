@@ -27,7 +27,7 @@
                   <li <?php if(@$page=='section-images'){ echo 'class="active"';}?>><a href="section-images.php">Images</a></li>
                 </ul>
               </li>
-                <li class="dropdown <?php if(@$page=='sections'){ echo 'active';}?>">
+                <li class="dropdown <?php if(@$page=='categories'){ echo 'active';}?>">
                 <a href="categories.php" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li <?php if(@$page=='categories'){ echo 'class="active"';}?>><a href="categories.php">Categories List</a></li>

@@ -17,6 +17,7 @@
 			$timestamp=date("d-m-Y", strtotime($row['created']));
 			$pubished_date=$timestamp;
 			$content_section=$row['section_id'];
+      $content_source=$row['content_source'];
 			$content_publish=$row['published'];
 			$content_category=$row['category_id'];
 			$content_access=$row['access'];
@@ -127,20 +128,31 @@
           </div>
           <!--ddsdd-->
           <div class="row">
-            <div class="span9" id="article-entry-box" >
-              <div class="control-group">
+              <span class="span6">
+                    <div class="control-group">
                 <label class="control-label" for="content-title">Title: <?php echo @$content_title_error;?></label>
                 <div class="controls">
                   <div class="input-prepend"> <span class="add-on"><i class="icon-pencil"></i></span>
                     <input type="text" id="content-title" placeholder="Article Title" name="content_title" class="input-xxlarge" value="<?php echo @$content_title;?>" />
                   </div>
                 </div>
-              </div>
-              <label class="control-label" for="content-title">Content:</label>
-              <textarea rows="6" style="width:100%" class="ckeditor" name="editor1"><?php echo @htmlspecialchars($full_content,ENT_QUOTES);?></textarea>
-            </div>
           </div>
+              </span>
+              <span class="span3">
+                  <label>Source:</label>
+                    <input type="text" name="content_source" class="input-large" placeholder="Content source"  value="<?php echo @$content_source;?>"/>
+              </div>
+          </div>
+
+        <div class="row">
+              <div class="span9">
+              <label class="control-label" for="content-title">Content:</label>
+              <textarea rows="6" style="width:100%" class="ckeditor" id="word_count" name="editor1"><?php echo @htmlspecialchars($full_content,ENT_QUOTES);?></textarea>
+            </div>
+        </div>
+          
           <!--ddsdd--> 
+
         </div>
         <!--Media-->
         <div class="tab-pane" id="media" >

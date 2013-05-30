@@ -1189,6 +1189,7 @@ if(isset($_POST['content_btn'])){// Process Content Add New
 @session_start();
 	$validated=true;
 	$pubished_date=$_POST['pubished_date'];
+	$content_source=clean_input($_POST['content_source']);
 	$created=create_timestamp($pubished_date);
 	$created_by=$_SESSION['userid_admin'];
 	$content_section=$_POST['content_section'];
@@ -1308,10 +1309,10 @@ if(isset($_POST['content_btn'])){// Process Content Add New
 				$content_other_file=NULL;
 				@unlink(CONTENT_OTHER_FILE_FOLDER.$_POST['e_content_other_file']);
 			}
-			$res=mysql_query("UPDATE cu_contents SET content_title='$content_title',content_alias='$content_alias',intro_text='$introtext',full_content='$full_content',excerpt='$excerpt',category_id='$content_category',section_id='$content_section',created='$created',created_by='$created_by',image='$content_picture',image_desc='$content_pic_desc',audio_file='$content_audio',audio_file_desc='$audio_desc',video_file='$content_video',video_file_desc='$video_desc',feature='$content_featured',metakey='$metakey',metadesc='$metadesc',metadata='$metadata',access='$content_access',published='$content_publish',modified='$modified',modified_by='$modified_by', other_file='$content_other_file', other_file_desc='$content_other_file_desc' WHERE id='$content_id'") or die(mysql_error());
+			$res=mysql_query("UPDATE cu_contents SET content_title='$content_title',content_alias='$content_alias',intro_text='$introtext',full_content='$full_content',excerpt='$excerpt',category_id='$content_category',section_id='$content_section',created='$created',created_by='$created_by',image='$content_picture',image_desc='$content_pic_desc',audio_file='$content_audio',audio_file_desc='$audio_desc',video_file='$content_video',video_file_desc='$video_desc',feature='$content_featured',metakey='$metakey',metadesc='$metadesc',metadata='$metadata',access='$content_access',published='$content_publish',modified='$modified',modified_by='$modified_by', other_file='$content_other_file', other_file_desc='$content_other_file_desc',content_source='$content_source' WHERE id='$content_id'") or die(mysql_error());
 			
 		}elseif($action=='add-new'){
-			$res=mysql_query("INSERT INTO cu_contents(content_title,content_alias,intro_text,full_content,excerpt,category_id,section_id,created,created_by,image,image_desc,audio_file,audio_file_desc,video_file,video_file_desc,feature,metakey,metadesc,metadata,access,published,other_file,other_file_desc)VALUES('$content_title','$content_alias','$introtext','$full_content','$excerpt','$content_category','$content_section','$created','$created_by','$content_picture','$content_pic_desc','$content_audio','$audio_desc','$content_video','$video_desc','$content_featured','$metakey','$metadesc','$metadata','$content_access','$content_publish','$content_other_file','$content_other_file_desc')") or die(mysql_error());
+			$res=mysql_query("INSERT INTO cu_contents(content_title,content_alias,intro_text,full_content,excerpt,category_id,section_id,created,created_by,image,image_desc,audio_file,audio_file_desc,video_file,video_file_desc,feature,metakey,metadesc,metadata,access,published,other_file,other_file_desc,content_source)VALUES('$content_title','$content_alias','$introtext','$full_content','$excerpt','$content_category','$content_section','$created','$created_by','$content_picture','$content_pic_desc','$content_audio','$audio_desc','$content_video','$video_desc','$content_featured','$metakey','$metadesc','$metadata','$content_access','$content_publish','$content_other_file','$content_other_file_desc','$content_source')") or die(mysql_error());
 		}
 		
 		

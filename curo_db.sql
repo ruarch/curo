@@ -72,7 +72,7 @@ CREATE TABLE `cu_con_images` (
   `image_order` tinyint(1) DEFAULT NULL,
   `added_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`image_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=61 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=62 DEFAULT CHARSET=latin1;
 
 /*Data for the table `cu_con_images` */
 
@@ -104,6 +104,7 @@ CREATE TABLE `cu_contents` (
   `content_alias` varchar(255) DEFAULT NULL,
   `intro_text` text,
   `full_content` text,
+  `content_source` text,
   `excerpt` text,
   `category_id` int(11) DEFAULT NULL,
   `section_id` int(11) DEFAULT NULL,
@@ -127,11 +128,11 @@ CREATE TABLE `cu_contents` (
   `hits` int(11) DEFAULT NULL,
   `published` varchar(50) DEFAULT 'unpublished',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=latin1;
 
 /*Data for the table `cu_contents` */
 
-insert  into `cu_contents`(`id`,`content_title`,`content_alias`,`intro_text`,`full_content`,`excerpt`,`category_id`,`section_id`,`created`,`created_by`,`modified`,`modified_by`,`image`,`image_desc`,`audio_file`,`audio_file_desc`,`video_file`,`video_file_desc`,`other_file`,`other_file_desc`,`feature`,`metakey`,`metadesc`,`metadata`,`access`,`hits`,`published`) values (51,'ama','ama','','aasass','',8,0,'2012-10-15 00:00:00',1,'2012-12-19 21:35:57',1,'','','','','','',NULL,NULL,0,'','','',4,NULL,'published'),(52,'Telephone Directory','telephone-directory','','<img alt=\"\" src=\"/media/images/double.jpg\" style=\"width: 320px; height: 448px; \" />','',0,17,'2012-10-15 00:00:00',1,'2013-01-02 08:48:35',1,'','','','','','',NULL,NULL,0,'','','',4,NULL,'published'),(53,'hhhhhhhhhhh','hhhhhhhhhhh','','','',0,20,'2013-01-28 00:00:00',1,'2013-01-28 10:31:26',1,'','','','','','','','vvvvvvvvvvvvvvv',0,'','','',4,NULL,'published'),(54,'dfdfddfddf','dfdfddfddf','','dffdfd','',8,17,'2013-03-05 00:00:00',1,'2013-03-05 13:59:16',1,'','','','','','','','',0,'','','',4,NULL,'published');
+insert  into `cu_contents`(`id`,`content_title`,`content_alias`,`intro_text`,`full_content`,`content_source`,`excerpt`,`category_id`,`section_id`,`created`,`created_by`,`modified`,`modified_by`,`image`,`image_desc`,`audio_file`,`audio_file_desc`,`video_file`,`video_file_desc`,`other_file`,`other_file_desc`,`feature`,`metakey`,`metadesc`,`metadata`,`access`,`hits`,`published`) values (51,'ama','ama','','aasass',NULL,'',8,0,'2012-10-15 00:00:00',1,'2012-12-19 21:35:57',1,'','','','','','',NULL,NULL,0,'','','',4,NULL,'published'),(52,'Telephone Directory','telephone-directory','','<img alt=\"\" src=\"/media/images/double.jpg\" style=\"width: 320px; height: 448px; \" />',NULL,'',0,17,'2012-10-15 00:00:00',1,'2013-01-02 08:48:35',1,'','','','','','',NULL,NULL,0,'','','',4,NULL,'published'),(53,'hhhhhhhhhhh','hhhhhhhhhhh','','',NULL,'',0,20,'2013-01-28 00:00:00',1,'2013-01-28 10:31:26',1,'','','','','','','','vvvvvvvvvvvvvvv',0,'','','',4,NULL,'published'),(54,'dfdfddfddf','dfdfddfddf','','dffdfd','','',8,17,'2013-03-05 00:00:00',1,'2013-05-28 15:55:04',1,'','','','','','','','',0,'','','',4,NULL,'published'),(55,'sdsdsd','sdsdsd','','sdsdssdsdss','','',9,20,'2013-05-28 00:00:00',1,'0000-00-00 00:00:00',NULL,'','','','','','','','',0,'','','',4,NULL,'published'),(56,'sdsds','sdsds','','sdsdsds','xxxxx','',8,18,'2013-05-28 00:00:00',1,'2013-05-28 15:56:16',1,'','','','','','','','',0,'','','',4,NULL,'published');
 
 /*Table structure for table `cu_events` */
 
