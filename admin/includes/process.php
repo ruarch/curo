@@ -291,6 +291,17 @@ $del_id=clean_input($_GET['id']);
 		}
 	}
 
+if($_GET['action']=='delete' && $page=='images'){//Delete a particular  gallery
+
+$del_id=clean_input($_GET['id']);
+		$del_res=mysql_query("DELETE FROM cu_images WHERE image_id='$del_id'") or die(mysql_error());
+		if($del_res){
+			$del_images_msg='<div class="alert alert-success"><a class="close" data-dismiss="alert" href="#">×</a>Image(s) successfully Deleted!</div>';
+		}else{
+			$del_images_msg='<div class="alert alert-error"><a class="close" data-dismiss="alert" href="#">×</a><strong>Error:</strong>Image(s) couldn\'t  Deleted!</div>';
+		}
+	}
+
 
 if($_GET['action']=='delete' && $page=='slideshow'){//Delete a particular  slide
 

@@ -1,5 +1,5 @@
 <div class="row">
-<?php include('right-menu.php');?>
+<?php include('left-menu.php');?>
 
 <div class="span9">
 <?php echo @$subscriber_add_success;?>

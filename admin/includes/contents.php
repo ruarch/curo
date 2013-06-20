@@ -1,5 +1,5 @@
 <div class="row">
-<?php include('right-menu.php');?>
+<?php include('left-menu.php');?>
 
 <div class="span9">
 <?php echo @$content_add_success;?>
@@ -57,7 +57,7 @@
     echo '<input type="hidden" name="e_content_other_file" value="'.@$content_other_file.'" />';
 	
 ?>
-<div class="row" > <div class="span2 pull-right"><input type="submit" name="content_btn" class="btn"  value="<?php if(@$action=='add-new'){echo 'Add';}elseif(@$action=='edit'){echo 'Update';}else{echo 'Add';}?>" /></div></div>
+<div class="row" > <div class="span2 pull-right"><input type="submit" name="content_btn" class="btn btn-success"  value="<?php if(@$action=='add-new'){echo 'Add';}elseif(@$action=='edit'){echo 'Update';}else{echo 'Add';}?>" /></div></div>
 
   <div class="row">
     <div class="span9" id="article-properties">
@@ -68,8 +68,8 @@
         <li><a href="#others">Others</a></li>
       </ul>
       <div class="tab-content">
-        <div class="tab-pane active" id="home">
-          <div class="row">
+        	<div class="tab-pane active" id="home"><!--home TAB-->
+            		<div class="row">
             <div class="span2">
               <div class="input-append date " id="pdp1" data-date="<?php echo today_date();?>" data-date-format="dd-mm-yyyy">
                 <label >Publish Date:</label>
@@ -125,38 +125,33 @@
                 <?php }?>
               </select>
             </div>
+            <div class="span3" >
+                  <label>Source:</label>
+                    <input type="text" name="content_source" class="input-large" placeholder="Content source"  value="<?php echo @$content_source;?>"/>
+              </div>
           </div>
-          <!--ddsdd-->
-          <div class="row">
-              <span class="span6">
-                    <div class="control-group">
+       
+          		<div class="control-group" >
                 <label class="control-label" for="content-title">Title: <?php echo @$content_title_error;?></label>
                 <div class="controls">
                   <div class="input-prepend"> <span class="add-on"><i class="icon-pencil"></i></span>
                     <input type="text" id="content-title" placeholder="Article Title" name="content_title" class="input-xxlarge" value="<?php echo @$content_title;?>" />
                   </div>
-                </div>
-          </div>
-              </span>
-              <span class="span3">
-                  <label>Source:</label>
-                    <input type="text" name="content_source" class="input-large" placeholder="Content source"  value="<?php echo @$content_source;?>"/>
-              </div>
-          </div>
-
-        <div class="row">
+                 </div>
+                 
+               </div>
+               
+                  <div class="row">
               <div class="span9">
               <label class="control-label" for="content-title">Content:</label>
               <textarea rows="6" style="width:100%" class="ckeditor" id="word_count" name="editor1"><?php echo @htmlspecialchars($full_content,ENT_QUOTES);?></textarea>
             </div>
         </div>
-          
-          <!--ddsdd--> 
-
-        </div>
-        <!--Media-->
-        <div class="tab-pane" id="media" >
-          <div class="row" style="overflow:hidden"> 
+              
+             
+            </div><!--//home TAB-->
+            <div class="tab-pane " id="media"><!--Media TAB-->
+            	<div class="row" style="overflow:hidden"> 
             <!--Image Section-->
             
             <div class="span3">
@@ -199,10 +194,11 @@
             <!--End other file  Section--> 
             
           </div>
-        </div>
         <!--End Media--> 
-        <!--META INFO-->
-        <div class="tab-pane" id="meta">
+        
+            </div><!--//Media TAB-->
+            <div class="tab-pane " id="meta"><!--meta TAB-->
+
           <div class="row">
             <div class="span7">
               <label for="content-title">Meta Keywords:</label>
@@ -217,25 +213,31 @@
               <textarea rows="4" class="span7" name="metadata" ><?php echo @$metadata;?></textarea>
             </div>
           </div>
-        </div>
-        <!--END META INFO--> 
+    
         
-        <!--other-->
-        <div class="tab-pane" id="others">
+       
+        
+            </div><!--//meta TAB-->
+            
+            <div class="tab-pane " id="others"><!--others TAB-->
         <div class="row">
-          <div class="span7">
-            <label for="content-title">Intro Text:</label>
-            <textarea rows="2" class="span7" name="introtext" ><?php echo @$introtext;?></textarea>
+              <div class="span7">
+                <label for="content-title">Intro Text:</label>
+                <textarea rows="2" class="span7" name="introtext" ><?php echo @$introtext;?></textarea>
+              </div>
+              <div class="span7">
+                <label for="content-title">Excerpt:</label>
+                <textarea rows="2" class="span7" name="excerpt" ><?php echo @$excerpt;?></textarea>
+              </div>
           </div>
-          <div class="span7">
-            <label for="content-title">Excerpt:</label>
-            <textarea rows="2" class="span7" name="excerpt" ><?php echo @$excerpt;?></textarea>
-          </div>
-        </div>
-        </div>
-        <!--End of other--> 
+            </div><!--//others TAB-->
+         
       </div>
+      
     </div>
   </div>
+  <br />
+  <div class="row" > <div class="span2 pull-right"><input type="submit" name="content_btn" class="btn btn-success"  value="<?php if(@$action=='add-new'){echo 'Add';}elseif(@$action=='edit'){echo 'Update';}else{echo 'Add';}?>" /></div></div>
+
 </form>
 </div></div>

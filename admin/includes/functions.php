@@ -324,7 +324,7 @@ echo'<table class="table table-hover" id="no-more-tables">
 						echo '<span class="badge badge-important">No</span>';
 					}
 				echo'</td><td data-title="Access"><span class="label">'.$access['access_name'].'</span></td>
-				 <td><a href="?action=edit&id='.$row['id'].'" class="btn" title="Edit" ><i class="icon-edit"></i></a> <a href="?action=delete&id='.$row['id'].'" class="btn " title="Delete" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-trash"></i></a></td>
+				 <td><a href="?action=edit&id='.$row['id'].'" class="btn btn-info" title="Edit" ><i class="icon-edit icon-white"></i></a> <a href="?action=delete&id='.$row['id'].'" class="btn btn-danger" title="Delete" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-trash icon-white"></i></a></td>
 				</tr>';  
 			  }
 			   echo '</tbody>
@@ -387,7 +387,7 @@ echo'<table class="table table-hover" id="no-more-tables">
 				echo'</td>
 				<td align="center" data-title="Ordering"><span class="badge">'.$row['ordering'].'</span></td>
 				<td data-title="Access"><span class="label">'.$access['access_name'].'</span></td>
-				 <td><a href="?action=edit&id='.$row['id'].'" class="btn" title="Edit" ><i class="icon-edit"></i></a> <a href="?action=delete&id='.$row['id'].'" class="btn " title="Delete" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-trash"></i></a></td>
+				 <td><a href="?action=edit&id='.$row['id'].'" class="btn btn-info" title="Edit" ><i class="icon-edit icon-white"></i></a> <a href="?action=delete&id='.$row['id'].'" class="btn btn-danger" title="Delete" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-trash icon-white"></i></a></td>
 				 </tr>
 				'; 
 				 
@@ -459,7 +459,7 @@ echo'<table class="table table-hover" id="no-more-tables">
 				<th>Category</th>
                 <th width="110">Published Date</th>
 				<th width="90">Published</th>
-                <th width=""></th>
+                <th width="140"></th>
               </tr>
               </thead>
               <tbody>';
@@ -479,7 +479,7 @@ echo'<table class="table table-hover" id="no-more-tables">
 			  <td data-title="Category">'.$cat['name'].'</td>
               <td data-title="Published Date">'.date("d-m-Y",strtotime($row['created'])).'</td>
 			  <td data-title="Published"><span class="label ';if($row['published']=="published"){ echo'label-success';}elseif($row['published']=="published"){echo'';}elseif($row['unpublished']=="draft"){echo 'label-info';} echo'">'.ucwords($row['published']).'</span></td>
-              <td ><a href="?action=edit&id='.$row['id'].'" class="btn btn-small" title="Edit" ><i class="icon-edit"></i></a> <a href="content-images.php?action=add-new&conid='.$row['id'].'" class="btn btn-small" title="Add images" > <i class="icon-plus"></i> <i class="icon-picture"></i> </a> <a href="?action=delete&id='.$row['id'].'" class="btn btn-small" title="Delete" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-trash"></i></a></td>
+              <td ><a href="?action=edit&id='.$row['id'].'" class="btn btn-small btn-info" title="Edit" ><i class="icon-edit icon-white"></i></a> <a href="content-images.php?action=add-new&conid='.$row['id'].'" class="btn btn-small btn-inverse" title="Add images" > <i class="icon-plus icon-white"></i> <i class="icon-picture icon-white"></i> </a> <a href="?action=delete&id='.$row['id'].'" class="btn btn-small btn-danger" title="Delete" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-trash icon-white "></i></a></td>
 			  
               </tr>';
 	}
@@ -551,7 +551,7 @@ echo'<table class="table table-hover" id="no-more-tables">
 					}elseif($row['event_feature']=='0'){
 						echo '<span class="badge badge-important">No</span>';
 					}
-              echo'<td><a href="?action=edit&id='.$row['event_id'].'" class="btn" title="Edit" ><i class="icon-edit"></i></a> <a href="?action=delete&id='.$row['event_id'].'" class="btn " title="Delete" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-trash"></i></a></td>
+              echo'<td><a href="?action=edit&id='.$row['event_id'].'" class="btn btn-info" title="Edit" ><i class="icon-edit icon-white"></i></a> <a href="?action=delete&id='.$row['event_id'].'" class="btn btn-danger" title="Delete" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-trash icon-white"></i></a></td>
 			  
               </tr>';
 	}
@@ -620,7 +620,7 @@ echo'<table class="table table-hover" id="no-more-tables">
 					}
 				echo'</td>';
 				
-              echo'<td><a href="?action=edit&id='.$row['userid'].'" class="btn" title="Edit" ><i class="icon-edit"></i></a> <a href="?action=delete&id='.$row['userid'].'" class="btn " title="Delete" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-trash"></i></a></td>
+              echo'<td><a href="?action=edit&id='.$row['userid'].'" class="btn btn-info" title="Edit" ><i class="icon-edit icon-white"></i></a> <a href="?action=delete&id='.$row['userid'].'" class="btn btn-danger" title="Delete" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-trash icon-white"></i></a></td>
 			  
               </tr>';
 	}
@@ -683,7 +683,7 @@ echo'<table class="table table-hover" id="no-more-tables">
 					}
 				echo'</td>';
 				
-              echo'<td><a href="?action=edit-subscriber&id='.$row['id'].'" class="btn" title="Edit" ><i class="icon-edit"></i></a> <a href="?action=delete-sub&id='.$row['id'].'" class="btn " title="Delete" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-trash"></i></a></td>
+              echo'<td><a href="?action=edit-subscriber&id='.$row['id'].'" class="btn btn-info" title="Edit" ><i class="icon-edit icon-white"></i></a> <a href="?action=delete-sub&id='.$row['id'].'" class="btn btn-danger" title="Delete" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-trash icon-white"></i></a></td>
 			  
               </tr>';
 	}
@@ -747,7 +747,7 @@ echo'<table class="table table-hover" id="no-more-tables">
 					}
 				echo'</td>';
 				
-              echo'<td><a href="?action=edit-newsletter&id='.$row['id'].'" class="btn" title="Edit" ><i class="icon-edit"></i></a> <a href="?action=view-newsletter&subaction=delete-nsl&id='.$row['id'].'" class="btn " title="Delete" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-trash"></i></a></td>
+              echo'<td><a href="?action=edit-newsletter&id='.$row['id'].'" class="btn btn-info" title="Edit" ><i class="icon-edit icon-white"></i></a> <a href="?action=view-newsletter&subaction=delete-nsl&id='.$row['id'].'" class="btn btn-danger" title="Delete" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-trash icon-white"></i></a></td>
 			  
               </tr>';
 	}
@@ -829,7 +829,7 @@ echo'<table class="table table-hover" id="no-more-tables">
 					}elseif($row['gallery_feature']=='0'){
 						echo '<span class="badge badge-important">No</span>';
 					}
-              echo'<td><a href="images.php?gid='.$row['gallery_id'].'" class="btn" title="View Gallery Images" ><i class="icon-picture"></i></a> <a href="?action=edit&id='.$row['gallery_id'].'" class="btn" title="Edit" ><i class="icon-edit"></i></a> <a href="?action=delete&id='.$row['gallery_id'].'" class="btn " title="Delete" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-trash"></i></a></td>
+              echo'<td><a href="images.php?gid='.$row['gallery_id'].'" class="btn btn-inverse" title="View Gallery Images" ><i class="icon-picture icon-white"></i></a> <a href="?action=edit&id='.$row['gallery_id'].'" class="btn btn-info" title="Edit" ><i class="icon-edit icon-white"></i></a> <a href="?action=delete&id='.$row['gallery_id'].'" class="btn btn-danger" title="Delete" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-trash icon-white"></i></a></td>
 			  
               </tr>';
 	}
@@ -930,7 +930,7 @@ echo'<table class="table table-hover" id="no-more-tables">
 					}elseif($row['image_feature']=='0'){
 						echo '<span class="badge badge-important">No</span>';
 					}
-              echo'<td><a href="?action=edit&id='.$row['image_id'].'" class="btn" title="Edit" ><i class="icon-edit"></i></a> <a href="?action=delete&id='.$row['image_id'].'" class="btn " title="Delete" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-trash"></i></a></td>
+              echo'<td><a href="?action=edit&id='.$row['image_id'].'" class="btn btn-info" title="Edit" ><i class="icon-edit icon-white"></i></a> <a href="?action=delete&id='.$row['image_id'].'" class="btn btn-danger" title="Delete" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-trash icon-white"></i></a></td>
 			  
               </tr>';
 	}
@@ -1052,7 +1052,7 @@ echo'<table class="table table-hover" id="no-more-tables">
 					}elseif($row['image_feature']=='0'){
 						echo '<span class="badge badge-important">No</span>';
 					}
-              echo'<td><a href="?action=edit&id='.$row['image_id'].'" class="btn" title="Edit" ><i class="icon-edit"></i></a> <a href="?action=delete&id='.$row['image_id'].'" class="btn " title="Delete" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-trash"></i></a></td>
+              echo'<td><a href="?action=edit&id='.$row['image_id'].'" class="btn btn-info" title="Edit" ><i class="icon-edit icon-white"></i></a> <a href="?action=delete&id='.$row['image_id'].'" class="btn btn-danger" title="Delete" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-trash icon-white"></i></a></td>
 			  
               </tr>';
 	}
@@ -1134,7 +1134,7 @@ echo'<table class="table table-hover" id="no-more-tables">
 					}elseif($row['slide_feature']=='0'){
 						echo '<span class="badge badge-important">No</span>';
 					}
-              echo'<td><a href="?action=edit&id='.$row['slide_id'].'" class="btn" title="Edit" ><i class="icon-edit"></i></a> <a href="?action=delete&id='.$row['slide_id'].'" class="btn " title="Delete" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-trash"></i></a></td>
+              echo'<td><a href="?action=edit&id='.$row['slide_id'].'" class="btn btn-info" title="Edit" ><i class="icon-edit icon-white"></i></a> <a href="?action=delete&id='.$row['slide_id'].'" class="btn btn-danger" title="Delete" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-trash icon-white"></i></a></td>
 			  
               </tr>';
 	}

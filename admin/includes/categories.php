@@ -1,5 +1,5 @@
 <div class="row">
-<?php include('right-menu.php');?>
+<?php include('left-menu.php');?>
 <div class="span9">
 <?php echo @$category_add_success;?>
 <div class="page-header" style="margin:0px 0px 5px 0px">

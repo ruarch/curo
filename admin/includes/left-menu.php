@@ -83,7 +83,7 @@
               <li class="nav-header">Gallery</li>
               <!--<li class="active"><a href="#">Link</a></li>-->
              <li><a href="gallery.php?action=add-new"><i class="icon-chevron-right"></i> Add New</a></li>
-             <li class="nav-header">Images</li>
+             <li class="nav-header">Gallery Images</li>
               <li><a href="images.php"><i class="icon-chevron-right"></i>View List</a></li>
               <li><a href="images.php?action=add-new"><i class="icon-chevron-right"></i> Add New</a></li>
               <li class="divider"></li>
