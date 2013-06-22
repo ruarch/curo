@@ -12,7 +12,7 @@ MySQL - 5.5.8 : Database - curo
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`curo` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`curo` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
 USE `curo`;
 
@@ -128,11 +128,11 @@ CREATE TABLE `cu_contents` (
   `hits` int(11) DEFAULT NULL,
   `published` varchar(50) DEFAULT 'unpublished',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=latin1;
 
 /*Data for the table `cu_contents` */
 
-insert  into `cu_contents`(`id`,`content_title`,`content_alias`,`intro_text`,`full_content`,`content_source`,`excerpt`,`category_id`,`section_id`,`created`,`created_by`,`modified`,`modified_by`,`image`,`image_desc`,`audio_file`,`audio_file_desc`,`video_file`,`video_file_desc`,`other_file`,`other_file_desc`,`feature`,`metakey`,`metadesc`,`metadata`,`access`,`hits`,`published`) values (51,'ama','ama','','aasass',NULL,'',8,0,'2012-10-15 00:00:00',1,'2012-12-19 21:35:57',1,'','','','','','',NULL,NULL,0,'','','',4,NULL,'published'),(52,'Telephone Directory','telephone-directory','','<img alt=\"\" src=\"/media/images/double.jpg\" style=\"width: 320px; height: 448px; \" />',NULL,'',0,17,'2012-10-15 00:00:00',1,'2013-01-02 08:48:35',1,'','','','','','',NULL,NULL,0,'','','',4,NULL,'published'),(53,'hhhhhhhhhhh','hhhhhhhhhhh','','',NULL,'',0,20,'2013-01-28 00:00:00',1,'2013-01-28 10:31:26',1,'','','','','','','','vvvvvvvvvvvvvvv',0,'','','',4,NULL,'published'),(54,'dfdfddfddf','dfdfddfddf','','dffdfd','','',8,17,'2013-03-05 00:00:00',1,'2013-05-28 15:55:04',1,'','','','','','','','',0,'','','',4,NULL,'published'),(55,'sdsdsd','sdsdsd','','sdsdssdsdss','','',9,20,'2013-05-28 00:00:00',1,'0000-00-00 00:00:00',NULL,'','','','','','','','',0,'','','',4,NULL,'published'),(56,'sdsds','sdsds','','sdsdsds','xxxxx','',8,18,'2013-05-28 00:00:00',1,'2013-05-28 15:56:16',1,'','','','','','','','',0,'','','',4,NULL,'published');
+insert  into `cu_contents`(`id`,`content_title`,`content_alias`,`intro_text`,`full_content`,`content_source`,`excerpt`,`category_id`,`section_id`,`created`,`created_by`,`modified`,`modified_by`,`image`,`image_desc`,`audio_file`,`audio_file_desc`,`video_file`,`video_file_desc`,`other_file`,`other_file_desc`,`feature`,`metakey`,`metadesc`,`metadata`,`access`,`hits`,`published`) values (51,'ama','ama','','aasass',NULL,'',8,0,'2012-10-15 00:00:00',1,'2012-12-19 21:35:57',1,'','','','','','',NULL,NULL,0,'','','',4,NULL,'published'),(52,'Telephone Directory','telephone-directory','','<img alt=\"\" src=\"/media/images/double.jpg\" style=\"width: 320px; height: 448px; \" />',NULL,'',0,17,'2012-10-15 00:00:00',1,'2013-01-02 08:48:35',1,'','','','','','',NULL,NULL,0,'','','',4,NULL,'published'),(53,'hhhhhhhhhhh','hhhhhhhhhhh','','',NULL,'',0,20,'2013-01-28 00:00:00',1,'2013-01-28 10:31:26',1,'','','','','','','','vvvvvvvvvvvvvvv',0,'','','',4,NULL,'published'),(54,'dfdfddfddf','dfdfddfddf','','dffdfd','','',8,17,'2013-03-05 00:00:00',1,'2013-05-28 15:55:04',1,'','','','','','','','',0,'','','',4,NULL,'published'),(55,'sdsdsd','sdsdsd','','sdsdssdsdss','','',9,20,'2013-05-28 00:00:00',1,'0000-00-00 00:00:00',NULL,'','','','','','','','',0,'','','',4,NULL,'published'),(56,'sdsds','sdsds','','sdsdsds','xxxxx','',8,18,'2013-05-28 00:00:00',1,'2013-05-30 02:03:44',1,'','','','','','','','',0,'','','',4,NULL,'draft'),(57,'dfsdfds','dfsdfds','','dsfdfdfd','','',0,20,'2013-06-15 00:00:00',1,'0000-00-00 00:00:00',NULL,'','','','','','','','',0,'','','',4,NULL,'published'),(58,'ssfdgfxbvxcvv','ssfdgfxbvxcvv','','xvcxvxvvxvxv','','',0,19,'2013-06-15 00:00:00',1,'0000-00-00 00:00:00',NULL,'','','','','','','','',0,'','','',4,NULL,'published'),(59,'sgfsfgds','sgfsfgds','','fdsfdssfsdfsfdsfsdf','','',9,20,'2013-06-15 00:00:00',1,'0000-00-00 00:00:00',NULL,'','','','','','','','',0,'','','',4,NULL,'published'),(60,'sfgdfdsfdsfddfxcvcx','sfgdfdsfdsfddfxcvcx','','','','',8,17,'2013-06-15 00:00:00',1,'0000-00-00 00:00:00',NULL,'','','','','','','','',0,'','','',4,NULL,'published'),(61,'sfdfbxvbhntrweww','sfdfbxvbhntrweww','','ssffsdfsdfdsfd','','',9,19,'2013-06-15 00:00:00',1,'0000-00-00 00:00:00',NULL,'','','','','','','','',0,'','','',4,NULL,'published');
 
 /*Table structure for table `cu_events` */
 
@@ -203,7 +203,7 @@ CREATE TABLE `cu_images` (
 
 /*Data for the table `cu_images` */
 
-insert  into `cu_images`(`image_id`,`image_title`,`image_gallery`,`image_file`,`image_description`,`image_added`,`image_access`,`image_feature`,`image_show`,`image_order`,`added_by`) values (45,'Image two',10,'American-Cancer-Society(20100707).jpg','','2012-11-21 05:13:10',3,0,1,0,1),(46,'Image two',10,'American-Diabetes-Association-Home-Page---American-Diabetes-Association-(20100707).jpg','','2012-11-21 05:13:10',3,0,1,0,1),(44,'Image two',10,'AARP(20100707).jpg','','2012-11-21 05:13:10',3,0,1,0,1),(48,'The pictures',7,'bethel.jpg','','2012-11-21 05:18:25',3,0,1,0,1),(47,'Image two',10,'American-Farmland-Trust-(20100707).jpg','','2012-11-21 05:13:10',3,0,1,0,1);
+insert  into `cu_images`(`image_id`,`image_title`,`image_gallery`,`image_file`,`image_description`,`image_added`,`image_access`,`image_feature`,`image_show`,`image_order`,`added_by`) values (45,'Image two',10,'American-Cancer-Society(20100707).jpg','','2012-11-21 05:13:10',3,0,1,0,1),(46,'Image two',10,'American-Diabetes-Association-Home-Page---American-Diabetes-Association-(20100707).jpg','','2012-11-21 05:13:10',3,0,1,0,1);
 
 /*Table structure for table `cu_newsletter_users` */
 
