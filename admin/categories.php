@@ -1,6 +1,11 @@
 <?php 
 ob_start();
-$page='categories';
+if(@$_GET['action']=='add-new' || @$_GET['action']=='edit'){
+	$page='categories-add';
+}else{
+	$page='categories';
+}
+
 require('../config.php');
 require('includes/connect-dbase.php');
 include('includes/functions.php');

@@ -1,4 +1,4 @@
-<?php if($page=='contents' || $page=='content-images'){?>     
+<?php if($page=='contents' || $page=='content-images' || $page=='contents-add'){?>     
       <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
@@ -23,7 +23,7 @@
         </div><!--/span-->
 <?php }?>
 
-<?php if($page=='sections' || $page=='section-images'){?>     
+<?php if($page=='sections' || $page=='section-images' || $page=='sections-add'){?>     
       <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
@@ -31,7 +31,7 @@
               <!--<li class="active"><a href="#">Link</a></li>-->
              <li <?php if(@$page=='sections'){ echo 'class="active"';}?>><a href="sections.php"><i class="icon-chevron-right"></i> Sections</a>
                 <ul>
-                    <li><a href="sections.php?action=add-new">Add New</a></li>
+                    <li <?php if(@$page=='sections-add'){ echo 'class="active"';}?>><a href="sections.php?action=add-new">Add New</a></li>
                 </ul>
              </li>
              
@@ -43,14 +43,18 @@
         </div><!--/span-->
 <?php }?>
 
-<?php if($page=='categories' || $page=='category-images'){?>     
+<?php if($page=='categories' || $page=='category-images' || $page=='categories-add'){?>     
       <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Categories</li>
               <!--<li class="active"><a href="#">Link</a></li>-->
-             <li <?php if(@$page=='categories'){ echo 'class="active"';}?>><a href="categories.php"><i class="icon-chevron-right"></i>View Categories</a></li>
-             <li><a href="categories.php?action=add-new"><i class="icon-chevron-right"></i> Add New</a></li>
+             <li <?php if(@$page=='categories'){ echo 'class="active"';}?>><a href="categories.php"><i class="icon-chevron-right"></i>View Categories</a>
+             	<ul>
+                	<li <?php if(@$page=='categories-add'){ echo 'class="active"';}?>><a href="categories.php?action=add-new">Add New</a></li>
+                </ul>
+             </li>
+             
               <li class="divider"></li>
                   <li class="nav-header">Listing By Section</li>
                   <?php load_category_by_section('categories.php',@$_GET['secid']);?>

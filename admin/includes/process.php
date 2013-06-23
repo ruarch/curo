@@ -480,8 +480,10 @@ if(isset($_POST['event_btn'])){// Process Category Add New
 		$action='';
 		$action=$_POST['action'];
 		if($action=='add-new'){
+			mysql_query("set names 'utf8'");
 				$res=mysql_query("INSERT INTO cu_events (event_title,event_venue,event_date,event_show,event_access,event_feature,event_details,event_image,added_by)VALUES('$event_title','$event_venue','$event_date','$event_show','$event_access','$event_featured','$event_details','$event_picture','$added_by')") or die(mysql_error());
 			}elseif($action=='edit'){
+				mysql_query("set names 'utf8'");
 				$event_id=clean_input($_POST['event_id']);
 				$res=mysql_query("UPDATE cu_events SET event_title='$event_title', event_venue='$event_venue', event_date='$event_date', event_show='$event_show', event_access='$event_access', event_feature='$event_featured',modified_date='$modified', event_details='$event_details',modified_by='$modified_by',event_image='$event_picture' WHERE event_id='$event_id'")or die(mysql_error());
 			}
@@ -615,9 +617,11 @@ if(isset($_POST['user_btn'])){// Process users
 				if($action=='edit'){
 					$uid=$_POST['user_id'];
 					if(empty($password)){
+						mysql_query("set names 'utf8'");
 						$sql="UPDATE cu_users SET user_fullname='$fullname',username='$username',user_email='$email',user_type='$user_access',activation='$activation' WHERE userid='$uid'";
 					}elseif(!empty($password)){
 						$hash_password=md5($password);
+						mysql_query("set names 'utf8'");
 						$sql="UPDATE cu_users SET user_fullname='$fullname',username='$username',user_email='$email',user_password='$hash_password',user_type='$user_access',activation='$activation' WHERE userid='$uid'";
 						
 					}
@@ -700,6 +704,7 @@ if(isset($_POST['images_btn'])){// Process Images
 						$uploadpath=GALLERY_FOLDER.$image;
 						$image_id=$_POST['image_id'];
 						if(move_uploaded_file($_FILES["image"]['tmp_name'],$uploadpath) || !empty($image)){
+							mysql_query("set names 'utf8'");
 						$res=mysql_query("UPDATE cu_images SET image_title='$image_title', image_description='$image_desc', image_file='$image', added_by='$added_by',image_access='$image_access',image_feature='$image_featured',image_show='$image_show',image_order='$image_order',image_gallery='$image_gallery'  WHERE image_id='$image_id'") or die(mysql_error());
 						if($res){
 							$image_add_success='<div class="alert alert-success"><a class="close" data-dismiss="alert" href="#">×</a>Images successfully updated!</div>';
@@ -710,6 +715,7 @@ if(isset($_POST['images_btn'])){// Process Images
 						$uploadpath=GALLERY_FOLDER.$_FILES["image"]['name']["$j"];
 							if(move_uploaded_file($_FILES["image"]['tmp_name']["$j"],$uploadpath)) { //upload the file
 							$image=$_FILES["image"]['name']["$j"];
+							mysql_query("set names 'utf8'");
 								$res=mysql_query("INSERT INTO cu_images(image_title,image_description,image_file,added_by,image_access,image_feature,image_show,image_order,image_gallery)VALUES('$image_title','$image_desc','$image','$added_by','$image_access','$image_featured','$image_show','$image_order','$image_gallery')") or die(mysql_error());
 							}
 						
@@ -804,7 +810,7 @@ if(isset($_POST['con_images_btn'])){// Process Con Images
 						$uploadpath=CON_IMAGES_FOLDER.$image;
 						$image_id=$_POST['image_id'];
 						if(move_uploaded_file($_FILES["image"]['tmp_name'],$uploadpath) || !empty($_POST['e_sectionimage'])){
-		
+						mysql_query("set names 'utf8'");
 						$res=mysql_query("UPDATE cu_con_images SET image_title='$image_title', image_description='$image_desc', image_file='$image', added_by='$added_by',image_access='$image_access',image_feature='$image_featured',image_show='$image_show',image_order='$image_order',imageconid='$image_con', image_module='$moduleinput'  WHERE image_id='$image_id'") or die(mysql_error());
 						if($res){
 							$image_add_success='<div class="alert alert-success"><a class="close" data-dismiss="alert" href="#">×</a>Images successfully updated!</div>';
@@ -815,6 +821,7 @@ if(isset($_POST['con_images_btn'])){// Process Con Images
 						$uploadpath=CON_IMAGES_FOLDER.$_FILES["image"]['name']["$j"];
 							if(move_uploaded_file($_FILES["image"]['tmp_name']["$j"],$uploadpath)) { //upload the file
 							$image=$_FILES["image"]['name']["$j"];
+							mysql_query("set names 'utf8'");
 								$res=mysql_query("INSERT INTO cu_con_images(image_title,image_description,image_file,added_by,image_access,image_feature,image_show,image_order,imageconid,image_module)VALUES('$image_title','$image_desc','$image','$added_by','$image_access','$image_featured','$image_show','$image_order','$image_con','$moduleinput')") or die(mysql_error());
 							}
 						
@@ -883,8 +890,10 @@ if(isset($_POST['gallery_btn'])){// Process Gallery
 				$action=$_POST['action'];
 					if($action=='edit'){
 						$gallery_id=$_POST['gallery_id'];
+						mysql_query("set names 'utf8'");
 						$res=mysql_query("UPDATE cu_gallery SET gallery_name='$gallery_name', gallery_description='$gallery_desc', gallery_image='$gallery_picture', added_by='$added_by',gallery_access='$gallery_access',gallery_feature='$gallery_featured',gallery_show='$gallery_show',gallery_order='$gallery_order'  WHERE gallery_id='$gallery_id'") or die(mysql_error());
 					}elseif($action=='add-new'){
+						mysql_query("set names 'utf8'");
 						$res=mysql_query("INSERT INTO cu_gallery(gallery_name,gallery_description,gallery_image,added_by,gallery_access,gallery_feature,gallery_show,gallery_order)VALUES('$gallery_name','$gallery_desc','$gallery_picture','$added_by','$gallery_access','$gallery_featured','$gallery_show','$gallery_order')") or die(mysql_error());
 					}
 					
@@ -965,8 +974,10 @@ if(isset($_POST['slide_btn'])){// Process Slide show
 				
 					if($action=='edit'){
 						$slide_id=$_POST['slide_id'];
+						mysql_query("set names 'utf8'");
 						$res=mysql_query("UPDATE cu_slideshow SET slide_title='$slide_title', slide_link='$slide_link', slide_description='$slidedesc', slide_file='$slide_picture', slide_added_by='$added_by',slide_access='$slide_access',slide_feature='$slide_featured',slide_show='$slide_show',slide_order='$slide_order'  WHERE slide_id='$slide_id'") or die(mysql_error());
 					}elseif($action=='add-new'){
+						mysql_query("set names 'utf8'");
 						$res=mysql_query("INSERT INTO cu_slideshow(slide_title,slide_link,slide_description,slide_file,slide_added_by,slide_access,slide_feature,slide_show,slide_order)VALUES('$slide_title','$slide_link','$slidedesc','$slide_picture','$added_by','$slide_access','$slide_featured','$slide_show','$slide_order')") or die(mysql_error());
 					}
 					
@@ -1074,8 +1085,10 @@ if(isset($_POST['section_btn'])){// Process Section
 		$action=$_POST['action'];
 		if($action=='edit'){
 			$section_id=$_POST['section_id'];
+			mysql_query("set names 'utf8'");
 			$res=mysql_query("UPDATE cu_sections SET title='$sectiontitle',name='$sectionname',alias='$sectionalias',section_show='$sectionshow',description='$sectiondesc',access='$sectionaccess',image='$section_picture',banner='$section_banner',ordering='$section_order', main_nav='$main_nav', uniqueid='$sectionuniqueid' WHERE id='$section_id'") or die(mysql_error());
 		}elseif($action=='add-new'){
+			mysql_query("set names 'utf8'");
 			$res=mysql_query("INSERT INTO cu_sections(title,name,alias,section_show,description,access,image,banner,ordering,main_nav,uniqueid)VALUES('$sectiontitle','$sectionname','$sectionalias','$sectionshow','$sectiondesc','$sectionaccess','$section_picture','$section_banner','$section_order','$main_nav','$sectionuniqueid')") or die(mysql_error());
 		}
 		
@@ -1166,9 +1179,11 @@ if(isset($_POST['add_new_category_btn'])){// Process Category Add New
 		$action='';
 		$action=$_POST['action'];
 		if($action=='add-new'){
+			mysql_query("set names 'utf8'");
 				$res=mysql_query("INSERT INTO cu_categories (title,name,section_id,category_show,description,feature,access,image,alias,uniqueid)VALUES('$categorytitle','$categoryname','$section','$categoryshow','$categorydesc','$categoryfeatured','$categoryaccess','$category_picture','$categoryalias','$categoryuniqueid')") or die(mysql_error());
 			}elseif($action=='edit'){
 				$category_id=$_POST['category_id'];
+				mysql_query("set names 'utf8'");
 				$res=mysql_query("UPDATE cu_categories SET title='$categorytitle',name='$categoryname',section_id='$section',category_show='$categoryshow',description='$categorydesc',feature='$categoryfeatured',access='$categoryaccess' ,image='$category_picture', alias='$categoryalias', uniqueid='$categoryuniqueid' WHERE id='$category_id'")or die(mysql_error());
 			}
 		
@@ -1320,9 +1335,11 @@ if(isset($_POST['content_btn'])){// Process Content Add New
 				$content_other_file=NULL;
 				@unlink(CONTENT_OTHER_FILE_FOLDER.$_POST['e_content_other_file']);
 			}
+			mysql_query("set names 'utf8'");
 			$res=mysql_query("UPDATE cu_contents SET content_title='$content_title',content_alias='$content_alias',intro_text='$introtext',full_content='$full_content',excerpt='$excerpt',category_id='$content_category',section_id='$content_section',created='$created',created_by='$created_by',image='$content_picture',image_desc='$content_pic_desc',audio_file='$content_audio',audio_file_desc='$audio_desc',video_file='$content_video',video_file_desc='$video_desc',feature='$content_featured',metakey='$metakey',metadesc='$metadesc',metadata='$metadata',access='$content_access',published='$content_publish',modified='$modified',modified_by='$modified_by', other_file='$content_other_file', other_file_desc='$content_other_file_desc',content_source='$content_source' WHERE id='$content_id'") or die(mysql_error());
 			
 		}elseif($action=='add-new'){
+			mysql_query("set names 'utf8'");
 			$res=mysql_query("INSERT INTO cu_contents(content_title,content_alias,intro_text,full_content,excerpt,category_id,section_id,created,created_by,image,image_desc,audio_file,audio_file_desc,video_file,video_file_desc,feature,metakey,metadesc,metadata,access,published,other_file,other_file_desc,content_source)VALUES('$content_title','$content_alias','$introtext','$full_content','$excerpt','$content_category','$content_section','$created','$created_by','$content_picture','$content_pic_desc','$content_audio','$audio_desc','$content_video','$video_desc','$content_featured','$metakey','$metadesc','$metadata','$content_access','$content_publish','$content_other_file','$content_other_file_desc','$content_source')") or die(mysql_error());
 		}
 		
@@ -1343,6 +1360,7 @@ if(isset($_POST['content_btn'])){// Process Content Add New
  					$chkfp=mysql_query("SELECT * FROM cu_content_frontpage WHERE content_id='$art_id'") or die(mysql_error());
  					$chkfp_count=mysql_num_rows($chkfp);
  					if($chkfp_count==0){
+						mysql_query("set names 'utf8'");
  						$fres=mysql_query("INSERT INTO cu_content_frontpage(content_id,content_type) VALUES('$art_id','$content_type')") or die(mysql_error());
 
  					}

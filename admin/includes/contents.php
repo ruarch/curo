@@ -57,7 +57,7 @@
     echo '<input type="hidden" name="e_content_other_file" value="'.@$content_other_file.'" />';
 	
 ?>
-<div class="row" > <div class="span2 pull-right"><input type="submit" name="content_btn" class="btn btn-success"  value="<?php if(@$action=='add-new'){echo 'Add';}elseif(@$action=='edit'){echo 'Update';}else{echo 'Add';}?>" /></div></div>
+<div class="row" > <div class="span2 pull-right"><input type="submit" name="content_btn" class="btn btn-info"  value="<?php if(@$action=='add-new'){echo 'Add';}elseif(@$action=='edit'){echo 'Update';}else{echo 'Add';}?>" /></div></div>
 
   <div class="row">
     <div class="span9" id="article-properties">
@@ -237,7 +237,7 @@
     </div>
   </div>
   <br />
-  <div class="row" > <div class="span2 pull-right"><input type="submit" name="content_btn" class="btn btn-success"  value="<?php if(@$action=='add-new'){echo 'Add';}elseif(@$action=='edit'){echo 'Update';}else{echo 'Add';}?>" /></div></div>
+  <div class="row" > <div class="span2 pull-right"><input type="submit" name="content_btn" class="btn btn-info"  value="<?php if(@$action=='add-new'){echo 'Add';}elseif(@$action=='edit'){echo 'Update';}else{echo 'Add';}?>" /></div></div>
 
 </form>
 </div></div>

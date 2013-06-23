@@ -38,7 +38,7 @@
 		echo '<input type="hidden" name="e_category_picture" value="'.@$category_picture.'" />';
 	
 ?>
-<div class="row" > <div class="span2 pull-right"><input type="submit" name="add_new_category_btn" class="btn"  value="<?php if(@$action=='add-new'){
+<div class="row" > <div class="span2 pull-right"><input type="submit" name="add_new_category_btn" class="btn btn-info"  value="<?php if(@$action=='add-new'){
 	echo 'Add';
 }elseif(@$action=='edit'){
 	echo 'Update';

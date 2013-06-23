@@ -39,7 +39,7 @@
 		echo '<input type="hidden" name="e_image" value="'.@$image.'" />';
 	
 ?>
-<div class="row" > <div class="span2 pull-right"><input type="submit" name="images_btn" class="btn"  value="<?php if(@$action=='add-new'){echo 'Add';}elseif(@$action=='edit'){echo 'Update';}else{echo 'Add';}?>" /></div></div>
+<div class="row" > <div class="span2 pull-right"><input type="submit" name="images_btn" class="btn btn-info"  value="<?php if(@$action=='add-new'){echo 'Add';}elseif(@$action=='edit'){echo 'Update';}else{echo 'Add';}?>" /></div></div>
 
   <div class="row">
     <div class="span9" id="article-properties">

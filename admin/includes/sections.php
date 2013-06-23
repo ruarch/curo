@@ -41,7 +41,7 @@
 ?>
 
 </div>
-<div class="row" > <div class="span2 pull-right"><input type="submit" name="section_btn" class="btn"  value="<?php if(@$action=='add-new'){
+<div class="row" > <div class="span2 pull-right"><input type="submit" name="section_btn" class="btn btn-info"  value="<?php if(@$action=='add-new'){
 	echo 'Add';
 }elseif(@$action=='edit'){
 	echo 'Update';

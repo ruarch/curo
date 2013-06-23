@@ -9,29 +9,32 @@
           </a>
           <a class="brand" href="<?php echo BASE_URL;?>" target="_new"><?php echo SITE_NAME;?></a>
           <?php if(isloggedin()){ echo '<p class="navbar-text pull-right">
-              Logged in as <a href="#" class="navbar-link">'.$_SESSION['username_admin'].'</a>  | <a href="?logout">Logout</a>
+              Logged in as <a href="#" class="navbar-link">'.$_SESSION['username_admin'].'</a>  | <i class="icon-off icon-white"></i> <a href="?logout">Logout</a>
             </p>';?>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="dropdown <?php if(@$page=='contents'){ echo 'active';}?>">
                 <a href="contents.php" class="dropdown-toggle" data-toggle="dropdown">Content <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li <?php if(@$page=='contents'){ echo 'class="active"';}?>><a href="contents.php">Content List</a></li>
-                  <li <?php if(@$page=='content-images'){ echo 'class="active"';}?>><a href="content-images.php">Images</a></li>
+                  <li <?php if(@$page=='contents'){ echo 'class="active"';}?>><a href="contents.php"><i class="icon-list"></i> Content List</a></li>
+                  <li  <?php if(@$page=='contents-add'){ echo 'class="active"';}?>><a href="contents.php?action=add-new"><i class="icon-plus"></i> Add New</a></li>
+                  <li <?php if(@$page=='content-images'){ echo 'class="active"';}?>><a href="content-images.php"><i class="icon-picture"></i> Images</a></li>
                 </ul>
               </li>
                 <li class="dropdown <?php if(@$page=='sections'){ echo 'active';}?>">
                 <a href="sections.php" class="dropdown-toggle" data-toggle="dropdown">Sections <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li <?php if(@$page=='sections'){ echo 'class="active"';}?>><a href="sections.php">Sections List</a></li>
-                  <li <?php if(@$page=='section-images'){ echo 'class="active"';}?>><a href="section-images.php">Images</a></li>
+                  <li <?php if(@$page=='sections'){ echo 'class="active"';}?>><a href="sections.php"><i class="icon-list"></i> Sections List</a></li>
+                  <li  <?php if(@$page=='sections-add'){ echo 'class="active"';}?>><a href="sections.php?action=add-new"><i class="icon-plus"></i> Add New</a></li>
+                  <li <?php if(@$page=='section-images'){ echo 'class="active"';}?>><a href="section-images.php"><i class="icon-picture"></i> Images</a></li>
                 </ul>
               </li>
                 <li class="dropdown <?php if(@$page=='categories'){ echo 'active';}?>">
                 <a href="categories.php" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li <?php if(@$page=='categories'){ echo 'class="active"';}?>><a href="categories.php">Categories List</a></li>
-                  <li <?php if(@$page=='category-images'){ echo 'class="active"';}?>><a href="category-images.php">Images</a></li>
+                  <li <?php if(@$page=='categories'){ echo 'class="active"';}?>><a href="categories.php"><i class="icon-list"></i> Categories List</a></li>
+                  <li  <?php if(@$page=='categories-add'){ echo 'class="active"';}?>><a href="categories.php?action=add-new"><i class="icon-plus"></i> Add New</a></li>
+                  <li <?php if(@$page=='category-images'){ echo 'class="active"';}?>><a href="category-images.php"><i class="icon-picture"></i> Images</a></li>
                 </ul>
                 
                </li>
@@ -42,7 +45,7 @@
                <li class="dropdown <?php if(@$page=='users'){ echo 'active';}?>">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li <?php if(@$page=='users'){ echo 'class="active"';}?>><a href="users.php">Users</a></li>
+                  <li <?php if(@$page=='users'){ echo 'class="active"';}?>><a href="users.php"><i class="icon-user"></i> Users</a></li>
                 </ul>
               </li>
             </ul>

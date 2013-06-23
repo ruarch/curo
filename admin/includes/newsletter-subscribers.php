@@ -35,7 +35,7 @@
 		echo '<input type="hidden" name="sub_id" value="'.@$id.'" />';
 	
 ?>
-<div class="row" > <div class="span2 pull-right"><input type="submit" name="subscribe_newsletter_btn" class="btn"  value="<?php if(@$action=='add-subscriber'){echo 'Add';}elseif(@$action=='edit-subscriber'){echo 'Update';}else{echo 'Add';}?>" /></div></div>
+<div class="row" > <div class="span2 pull-right"><input type="submit" name="subscribe_newsletter_btn" class="btn btn-info"  value="<?php if(@$action=='add-subscriber'){echo 'Add';}elseif(@$action=='edit-subscriber'){echo 'Update';}else{echo 'Add';}?>" /></div></div>
 
   <div class="row">
     <div class="span9" id="article-properties">

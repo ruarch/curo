@@ -244,7 +244,7 @@ function load_content_by_category($url,$value=''){
 function get_list_category($page='',$q=''){//get category list
 include('pagination.php');
 $pagination= new Pagination;
-$size=5;//number of records per page
+$size=8;//number of records per page
 
 if(!empty($q)){
 	if(isset($_GET['secid'])){
@@ -335,7 +335,7 @@ echo'<table class="table table-hover" id="no-more-tables">
 function get_list_section($page='',$q=''){//get section list
 include('pagination.php');
 $pagination= new Pagination;
-$size=5;//number of records per page
+$size=8;//number of records per page
 if(!empty($q)){
 	$url="sections.php?q=$q&p=";//Url for pagination
 }else{

@@ -1,6 +1,10 @@
 <?php 
 ob_start();
+if(@$_GET['action']=='add-new' || @$_GET['action']=='edit'){
+	$page='sections-add';
+}else{
 $page='sections';
+}
 require('../config.php');
 require('includes/connect-dbase.php');
 include('includes/functions.php');
