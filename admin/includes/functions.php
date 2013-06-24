@@ -81,6 +81,31 @@ function list_section_ordering($value=''){//get the number sections for ordering
 	}
 }
 
+function list_frontpage_ordering($value='',$section){//get the number sections for ordering list
+	$res=mysql_query("SELECT * FROM cu_content_frontpage WHERE content_type='$section'") or die(mysql_error());
+	$sec_num=mysql_num_rows($res);
+	$i=1;
+	echo'<option value="">Select</option>';
+	if($sec_num!=0){
+	while($sec_num>=$i){
+	echo'<option value="'.$i.'"';
+			if($value == $i){
+			echo' selected="selected"';
+		}
+	echo'>'.$i.'</option>';
+	$i++;
+	}
+	$ex=$i;
+	echo'<option value="'.$ex.'"';
+			if($value == $ex){
+			echo' selected="selected"';
+		}
+	echo'>'.$ex.'</option>';
+	}else{
+		echo'<option value="1">1</option>';
+	}
+}
+
 function list_slide_ordering($value=''){//get the number slide for ordering list
 	$res=mysql_query("SELECT * FROM cu_slideshow") or die(mysql_error());
 	$sec_num=mysql_num_rows($res);

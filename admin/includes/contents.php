@@ -38,6 +38,9 @@
 			$content_video=$row['video_file'];
       $content_other_file_desc=$row['other_file_desc'];
       $content_other_file=$row['other_file'];
+      $fo_res=mysql_query("SELECT * FROM cu_content_frontpage WHERE content_id='$id'") or die(mysql_error());
+      $fo_row=mysql_fetch_array($fo_res);
+      $frontp_order=$fo_row['ordering'];
 
 				}
 			}
@@ -123,6 +126,12 @@
                 <?php }elseif($action=='edit'){?>
                  		<?php @load_frontpage($content_id);?>
                 <?php }?>
+              </select>
+            </div>
+            <div class="span*">
+              <label>Front Ordering: <?php echo @$sectionorder_error;?></label>
+              <select name="frontp_order" class="span1">
+                <?php @list_frontpage_ordering($frontp_order,'content');?>
               </select>
             </div>
             <div class="span3" >
