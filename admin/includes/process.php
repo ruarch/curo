@@ -1350,7 +1350,18 @@ if(isset($_POST['content_btn'])){// Process Content Add New
 			if($action=='add-new'){
 				$art_id=mysql_insert_id();
 					if($content_frontpage=='1'){
+			
+							if(isset($frontp_order)){
+								$chkfp=mysql_query("SELECT * FROM cu_content_frontpage WHERE ordering='$frontp_order'") or die(mysql_error());
+	 							$fcount=mysql_num_rows($chkfp);
+	 							$frow=mysql_fetch_array($chkfp);
+	 							if($fcount>0){
+	 								$fres=mysql_query("DELETE FROM cu_content_frontpage WHERE content_id='".$frow['content_id']."' ") or die(mysql_error());
+	 							}
+	 				         }
+	 					mysql_query("set names 'utf8'");
 					$fres=mysql_query("INSERT INTO cu_content_frontpage(content_id,content_type,ordering) VALUES('$art_id','$content_type','$frontp_order')") or die(mysql_error());
+
 					}elseif($content_frontpage=='0'){
 						
 					}
@@ -1361,11 +1372,27 @@ if(isset($_POST['content_btn'])){// Process Content Add New
  					$chkfp_count=mysql_num_rows($chkfp);
  					if($chkfp_count==0){
 						mysql_query("set names 'utf8'");
+						if(isset($frontp_order)){
+							$chkfp=mysql_query("SELECT * FROM cu_content_frontpage WHERE ordering='$frontp_order'") or die(mysql_error());
+ 							$fcount=mysql_num_rows($chkfp);
+ 							$frow=mysql_fetch_array($chkfp);
+ 							if($fcount>0){
+ 								$fres=mysql_query("DELETE FROM cu_content_frontpage WHERE content_id='".$frow['content_id']."' ") or die(mysql_error());
+ 							}
+ 						}
  						$fres=mysql_query("INSERT INTO cu_content_frontpage(content_id,content_type,ordering) VALUES('$art_id','$content_type','$frontp_order')") or die(mysql_error());
 
  					}else{
  						if(isset($frontp_order)){
+ 							$chkfp=mysql_query("SELECT * FROM cu_content_frontpage WHERE ordering='$frontp_order'") or die(mysql_error());
+ 							$fcount=mysql_num_rows($chkfp);
+ 							$frow=mysql_fetch_array($chkfp);
+ 							if($fcount>0){
+ 								$fres=mysql_query("DELETE FROM cu_content_frontpage WHERE content_id='".$frow['content_id']."' ") or die(mysql_error());
+ 							}
  							$fres=mysql_query("UPDATE cu_content_frontpage SET ordering='$frontp_order' WHERE content_id='$art_id'") or die(mysql_error());
+ 							
+
  						}
  					}
 
