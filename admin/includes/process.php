@@ -1226,7 +1226,7 @@ if(isset($_POST['content_btn'])){// Process Content Add New
 	$content_title=clean_input($_POST['content_title']);
 	$content_alias=clean_input($_POST['content_alias']);
 	$content_publish=$_POST['content_publish'];
-	$full_content=$_POST['editor1'];
+	$full_content=mysql_escape_string($_POST['editor1']);
 	$content_pic_desc=clean_input($_POST['content_pic_desc']);
 	$video_desc=clean_input($_POST['video_desc']);
 	$audio_desc=clean_input($_POST['audio_desc']);

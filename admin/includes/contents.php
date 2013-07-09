@@ -28,7 +28,8 @@
 			$content_pic_desc=$row['image_desc'];
 			$audio_desc=$row['audio_file_desc'];
 			$video_desc=$row['video_file_desc'];
-			$metakey=$row['metakey'];
+      $words = extractCommonWords($full_content);
+			$metakey=implode(',', array_keys($words));
 			$metadesc=$row['metadesc'];
 			$metadata=$row['metadata'];
 			$introtext=$row['intro_text'];
