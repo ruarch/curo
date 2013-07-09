@@ -138,6 +138,11 @@
                   <label>Source:</label>
                     <input type="text" name="content_source" class="input-large" placeholder="Content source"  value="<?php echo @$content_source;?>"/>
               </div>
+
+               <div class="span3" >
+                  <label>Source:</label>
+                    <input type="text" name="content_source" class="input-large" placeholder="Content source"  value="<?php echo @$content_source;?>"/>
+              </div>
           </div>
        
           		<div class="control-group" >

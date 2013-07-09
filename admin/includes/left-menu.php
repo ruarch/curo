@@ -1,4 +1,4 @@
-<?php if($page=='contents' || $page=='content-images' || $page=='contents-add'){?>     
+<?php if($page=='contents' || $page=='content-images' || $page=='contents-add' || $page=='frontpage-contents'){?>     
       <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">

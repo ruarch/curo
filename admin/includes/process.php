@@ -1114,6 +1114,7 @@ if(isset($_POST['section_btn'])){// Process Section
 			$sectiondesc='';
 			$section_picture='';
 			$section_banner='';
+			$section_order='';
 		}
 	}
 }//End of add new section process
@@ -1369,14 +1370,16 @@ if(isset($_POST['content_btn'])){// Process Content Add New
 					$art_id=$content_id;
  					if($content_frontpage=='1'){
  					$chkfp=mysql_query("SELECT * FROM cu_content_frontpage WHERE content_id='$art_id'") or die(mysql_error());
+ 					$chkfp_row=mysql_fetch_array($chkfp);
  					$chkfp_count=mysql_num_rows($chkfp);
  					if($chkfp_count==0){
 						mysql_query("set names 'utf8'");
 						if(isset($frontp_order)){
 							$chkfp=mysql_query("SELECT * FROM cu_content_frontpage WHERE ordering='$frontp_order'") or die(mysql_error());
+							$chkfp_row=mysql_fetch_array($chkfp);
  							$fcount=mysql_num_rows($chkfp);
  							$frow=mysql_fetch_array($chkfp);
- 							if($fcount>0){
+ 							if($fcount>0 && $chkfp_row['content_id']!=$content_id){
  								$fres=mysql_query("DELETE FROM cu_content_frontpage WHERE content_id='".$frow['content_id']."' ") or die(mysql_error());
  							}
  						}
@@ -1385,9 +1388,10 @@ if(isset($_POST['content_btn'])){// Process Content Add New
  					}else{
  						if(isset($frontp_order)){
  							$chkfp=mysql_query("SELECT * FROM cu_content_frontpage WHERE ordering='$frontp_order'") or die(mysql_error());
+ 							$chkfp_row=mysql_fetch_array($chkfp);
  							$fcount=mysql_num_rows($chkfp);
  							$frow=mysql_fetch_array($chkfp);
- 							if($fcount>0){
+ 							if($fcount>0 && $chkfp_row['content_id']!=$content_id){
  								$fres=mysql_query("DELETE FROM cu_content_frontpage WHERE content_id='".$frow['content_id']."' ") or die(mysql_error());
  							}
  							$fres=mysql_query("UPDATE cu_content_frontpage SET ordering='$frontp_order' WHERE content_id='$art_id'") or die(mysql_error());
@@ -1438,6 +1442,7 @@ if(isset($_POST['content_btn'])){// Process Content Add New
 			$content_video='';
 			$content_other_file_desc='';
 			$content_other_file='';
+			$frontp_order='';
 			
 		}
 	}

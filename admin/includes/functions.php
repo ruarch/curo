@@ -503,7 +503,80 @@ echo'<table class="table table-hover" id="no-more-tables">
               <td data-title="Section">'.$sec['name'].'</td>
 			  <td data-title="Category">'.$cat['name'].'</td>
               <td data-title="Published Date">'.date("d-m-Y",strtotime($row['created'])).'</td>
-			  <td data-title="Published"><span class="label ';if($row['published']=="published"){ echo'label-success';}elseif($row['published']=="published"){echo'';}elseif($row['unpublished']=="draft"){echo 'label-info';} echo'">'.ucwords($row['published']).'</span></td>
+			  <td data-title="Published"><span class="label ';if($row['published']=="published"){ echo'label-success';}elseif($row['published']=="published"){echo'';}elseif($row['published']=="draft"){echo 'label-info';} echo'">'.ucwords($row['published']).'</span></td>
+              <td ><a href="?action=edit&id='.$row['id'].'" class="btn btn-small btn-info" title="Edit" ><i class="icon-edit icon-white"></i></a> <a href="content-images.php?action=add-new&conid='.$row['id'].'" class="btn btn-small btn-inverse" title="Add images" > <i class="icon-plus icon-white"></i> <i class="icon-picture icon-white"></i> </a> <a href="?action=delete&id='.$row['id'].'" class="btn btn-small btn-danger" title="Delete" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-trash icon-white "></i></a></td>
+			  
+              </tr>';
+	}
+	echo '</tbody>
+			</table>';
+	echo $pagination->create_links();
+}
+function get_frontpage_list_content($page='',$q=''){//get content list
+include('pagination.php');
+$pagination= new Pagination;
+$size=10;//number of records per page
+if(!empty($q)){
+	
+		$url="contents.php?q=$q&p=";//Url for pagination
+
+}else{
+
+		$url="contents.php?p=";//Url for pagination
+	
+}
+
+$q=str_replace(" ","%",$q);
+$pagination->setPage($page);
+$pagination->setSize($size);
+$pagination->setLink($url);
+$sql="SELECT cu_contents.id,cu_content_frontpage.content_id,cu_contents.section_id AS secid, cu_contents.category_id AS catid,cu_contents.access AS con_access,
+	  cu_contents.content_title AS contenttitle, cu_contents.created AS con_created, cu_contents.published AS con_published
+	 FROM cu_content_frontpage LEFT JOIN cu_contents ON cu_content_frontpage.content_id =cu_contents.id   ";
+
+if(!empty($q)){
+	$q=clean_input($q);
+
+$sql.=" AND content_title LIKE '%$q%' OR content_alias LIKE '%$q%'";
+}
+$sql.=" ORDER BY id DESC";
+//Pagination Res
+
+$resnum=mysql_query($sql) or die(mysql_error());
+$total_records=mysql_num_rows($resnum);//total number of records
+$pagination->setTotalRecords($total_records);
+$getsql=$pagination->getLimitSql($sql);
+$res=mysql_query($sql.' '.$getsql) or die(mysql_error());
+echo'<table class="table table-hover" id="no-more-tables">
+              <thead>
+ 			  <tr>
+              <th width="10"><input type="checkbox" name="chkall" onclick="checkall()" /></th>
+                <th width="20">ID</th>
+                <th>Title</th>
+                <th>Section</th>
+				<th>Category</th>
+                <th width="110">Published Date</th>
+				<th width="90">Published</th>
+                <th width="140"></th>
+              </tr>
+              </thead>
+              <tbody>';
+
+	while($row=mysql_fetch_array($res)){
+		$cat=category_info($row['catid']);
+		$sec=section_info($row['secid']);
+		$access=access_info($row['con_access']);
+		echo' <tr>
+              <td><input type="checkbox" name="contentid[]" value="'.$row['id'].'" /></td>
+              <td data-title="ID">'.$row['id'].'</td>
+              <td data-title="Title">';
+			  
+			  echo'<span class="label pull-right">'.$access['access_name'].'</span>';
+			  echo $row['contenttitle'].'</td>
+              <td data-title="Section">'.$sec['name'].'</td>
+			  <td data-title="Category">'.$cat['name'].'</td>
+              <td data-title="Published Date">'.date("d-m-Y",strtotime($row['con_created'])).'</td>
+			  <td data-title="Published"><span class="label ';if($row['con_published']=="published"){ echo'label-success';}elseif($row['con_published']=="published"){echo'';}elseif($row['published']=="draft"){echo 'label-info';} echo'">'.ucwords($row['con_published']).'</span></td>
               <td ><a href="?action=edit&id='.$row['id'].'" class="btn btn-small btn-info" title="Edit" ><i class="icon-edit icon-white"></i></a> <a href="content-images.php?action=add-new&conid='.$row['id'].'" class="btn btn-small btn-inverse" title="Add images" > <i class="icon-plus icon-white"></i> <i class="icon-picture icon-white"></i> </a> <a href="?action=delete&id='.$row['id'].'" class="btn btn-small btn-danger" title="Delete" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="icon-trash icon-white "></i></a></td>
 			  
               </tr>';

@@ -23,9 +23,9 @@ DROP TABLE IF EXISTS `cu_access`;
 CREATE TABLE `cu_access` (
   `access_id` int(11) NOT NULL AUTO_INCREMENT,
   `access` tinyint(1) NOT NULL DEFAULT '3',
-  `access_name` varchar(100) DEFAULT NULL,
+  `access_name` varchar(100) CHARACTER SET latin1 DEFAULT NULL,
   PRIMARY KEY (`access_id`,`access`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 /*Data for the table `cu_access` */
 
@@ -37,22 +37,22 @@ DROP TABLE IF EXISTS `cu_categories`;
 
 CREATE TABLE `cu_categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  `alias` varchar(255) DEFAULT NULL,
-  `image` text,
+  `name` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `title` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `alias` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `image` text CHARACTER SET latin1,
   `section_id` int(11) DEFAULT NULL,
-  `description` text,
+  `description` text CHARACTER SET latin1,
   `uniqueid` varbinary(255) DEFAULT NULL,
   `category_show` tinyint(50) DEFAULT '1',
   `feature` tinyint(10) DEFAULT '0',
   `access` tinyint(3) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 /*Data for the table `cu_categories` */
 
-insert  into `cu_categories`(`id`,`name`,`title`,`alias`,`image`,`section_id`,`description`,`uniqueid`,`category_show`,`feature`,`access`) values (9,'Faculty xdfdf','','faculty-xdfdf','',18,'','',1,0,4),(8,'Radio','',NULL,'',19,'',NULL,1,0,4);
+insert  into `cu_categories`(`id`,`name`,`title`,`alias`,`image`,`section_id`,`description`,`uniqueid`,`category_show`,`feature`,`access`) values (9,'Faculty xdfdf','','faculty-xdfdf','',18,'','',1,0,4),(8,'Radio','',NULL,'',19,'',NULL,1,0,4),(10,'Education & Research','sdsdsddsdsds','education-and-research','',20,'sdssdsdsd','',1,0,4),(12,'??????','??????','-','',20,'&Sigma;&alpha;&mu;&upsilon;&epsilon;&lambda;','',1,0,4);
 
 /*Table structure for table `cu_con_images` */
 
@@ -60,11 +60,11 @@ DROP TABLE IF EXISTS `cu_con_images`;
 
 CREATE TABLE `cu_con_images` (
   `image_id` int(11) NOT NULL AUTO_INCREMENT,
-  `image_title` varchar(255) DEFAULT NULL,
+  `image_title` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
   `imageconid` int(11) DEFAULT NULL,
-  `image_file` text,
-  `image_description` text,
-  `image_module` varchar(255) DEFAULT NULL,
+  `image_file` text CHARACTER SET latin1,
+  `image_description` text CHARACTER SET latin1,
+  `image_module` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
   `image_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `image_access` int(11) DEFAULT NULL,
   `image_feature` tinyint(1) DEFAULT '0',
@@ -72,7 +72,7 @@ CREATE TABLE `cu_con_images` (
   `image_order` tinyint(1) DEFAULT NULL,
   `added_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`image_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=62 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
 
 /*Data for the table `cu_con_images` */
 
@@ -85,14 +85,14 @@ DROP TABLE IF EXISTS `cu_content_frontpage`;
 CREATE TABLE `cu_content_frontpage` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `content_id` int(11) DEFAULT NULL,
-  `content_type` varchar(100) DEFAULT NULL,
+  `content_type` varchar(100) CHARACTER SET latin1 DEFAULT NULL,
   `ordering` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 
 /*Data for the table `cu_content_frontpage` */
 
-insert  into `cu_content_frontpage`(`id`,`content_id`,`content_type`,`ordering`) values (20,52,'content',NULL),(21,52,'content',NULL),(22,52,'content',NULL);
+insert  into `cu_content_frontpage`(`id`,`content_id`,`content_type`,`ordering`) values (32,68,'content',1);
 
 /*Table structure for table `cu_contents` */
 
@@ -100,39 +100,39 @@ DROP TABLE IF EXISTS `cu_contents`;
 
 CREATE TABLE `cu_contents` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `content_title` varchar(255) DEFAULT NULL,
-  `content_alias` varchar(255) DEFAULT NULL,
-  `intro_text` text,
-  `full_content` text,
-  `content_source` text,
-  `excerpt` text,
+  `content_title` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `content_alias` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `intro_text` text CHARACTER SET latin1,
+  `full_content` text CHARACTER SET latin1,
+  `content_source` text CHARACTER SET latin1,
+  `excerpt` text CHARACTER SET latin1,
   `category_id` int(11) DEFAULT NULL,
   `section_id` int(11) DEFAULT NULL,
   `created` datetime DEFAULT '0000-00-00 00:00:00',
   `created_by` int(11) DEFAULT NULL,
   `modified` datetime DEFAULT '0000-00-00 00:00:00',
   `modified_by` int(11) DEFAULT NULL,
-  `image` text,
-  `image_desc` text,
-  `audio_file` text,
-  `audio_file_desc` text,
-  `video_file` text,
-  `video_file_desc` text,
-  `other_file` text,
-  `other_file_desc` text,
+  `image` text CHARACTER SET latin1,
+  `image_desc` text CHARACTER SET latin1,
+  `audio_file` text CHARACTER SET latin1,
+  `audio_file_desc` text CHARACTER SET latin1,
+  `video_file` text CHARACTER SET latin1,
+  `video_file_desc` text CHARACTER SET latin1,
+  `other_file` text CHARACTER SET latin1,
+  `other_file_desc` text CHARACTER SET latin1,
   `feature` tinyint(1) DEFAULT '0',
-  `metakey` text,
-  `metadesc` text,
-  `metadata` text,
+  `metakey` text CHARACTER SET latin1,
+  `metadesc` text CHARACTER SET latin1,
+  `metadata` text CHARACTER SET latin1,
   `access` int(11) DEFAULT '3',
   `hits` int(11) DEFAULT NULL,
-  `published` varchar(50) DEFAULT 'unpublished',
+  `published` varchar(50) CHARACTER SET latin1 DEFAULT 'unpublished',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8;
 
 /*Data for the table `cu_contents` */
 
-insert  into `cu_contents`(`id`,`content_title`,`content_alias`,`intro_text`,`full_content`,`content_source`,`excerpt`,`category_id`,`section_id`,`created`,`created_by`,`modified`,`modified_by`,`image`,`image_desc`,`audio_file`,`audio_file_desc`,`video_file`,`video_file_desc`,`other_file`,`other_file_desc`,`feature`,`metakey`,`metadesc`,`metadata`,`access`,`hits`,`published`) values (51,'ama','ama','','aasass',NULL,'',8,0,'2012-10-15 00:00:00',1,'2012-12-19 21:35:57',1,'','','','','','',NULL,NULL,0,'','','',4,NULL,'published'),(52,'Telephone Directory','telephone-directory','','<img alt=\"\" src=\"/media/images/double.jpg\" style=\"width: 320px; height: 448px; \" />',NULL,'',0,17,'2012-10-15 00:00:00',1,'2013-01-02 08:48:35',1,'','','','','','',NULL,NULL,0,'','','',4,NULL,'published'),(53,'hhhhhhhhhhh','hhhhhhhhhhh','','',NULL,'',0,20,'2013-01-28 00:00:00',1,'2013-01-28 10:31:26',1,'','','','','','','','vvvvvvvvvvvvvvv',0,'','','',4,NULL,'published'),(54,'dfdfddfddf','dfdfddfddf','','dffdfd','','',8,17,'2013-03-05 00:00:00',1,'2013-05-28 15:55:04',1,'','','','','','','','',0,'','','',4,NULL,'published'),(55,'sdsdsd','sdsdsd','','sdsdssdsdss','','',9,20,'2013-05-28 00:00:00',1,'0000-00-00 00:00:00',NULL,'','','','','','','','',0,'','','',4,NULL,'published'),(56,'sdsds','sdsds','','sdsdsds','xxxxx','',8,18,'2013-05-28 00:00:00',1,'2013-05-30 02:03:44',1,'','','','','','','','',0,'','','',4,NULL,'draft'),(57,'dfsdfds','dfsdfds','','dsfdfdfd','','',0,20,'2013-06-15 00:00:00',1,'0000-00-00 00:00:00',NULL,'','','','','','','','',0,'','','',4,NULL,'published'),(58,'ssfdgfxbvxcvv','ssfdgfxbvxcvv','','xvcxvxvvxvxv','','',0,19,'2013-06-15 00:00:00',1,'0000-00-00 00:00:00',NULL,'','','','','','','','',0,'','','',4,NULL,'published'),(59,'sgfsfgds','sgfsfgds','','fdsfdssfsdfsfdsfsdf','','',9,20,'2013-06-15 00:00:00',1,'0000-00-00 00:00:00',NULL,'','','','','','','','',0,'','','',4,NULL,'published'),(60,'sfgdfdsfdsfddfxcvcx','sfgdfdsfdsfddfxcvcx','','','','',8,17,'2013-06-15 00:00:00',1,'0000-00-00 00:00:00',NULL,'','','','','','','','',0,'','','',4,NULL,'published'),(61,'sfdfbxvbhntrweww','sfdfbxvbhntrweww','','ssffsdfsdfdsfd','','',9,19,'2013-06-15 00:00:00',1,'0000-00-00 00:00:00',NULL,'','','','','','','','',0,'','','',4,NULL,'published');
+insert  into `cu_contents`(`id`,`content_title`,`content_alias`,`intro_text`,`full_content`,`content_source`,`excerpt`,`category_id`,`section_id`,`created`,`created_by`,`modified`,`modified_by`,`image`,`image_desc`,`audio_file`,`audio_file_desc`,`video_file`,`video_file_desc`,`other_file`,`other_file_desc`,`feature`,`metakey`,`metadesc`,`metadata`,`access`,`hits`,`published`) values (51,'ama','ama','','aasass',NULL,'',8,0,'2012-10-15 00:00:00',1,'2012-12-19 21:35:57',1,'','','','','','',NULL,NULL,0,'','','',4,NULL,'published'),(52,'Telephone Directory','telephone-directory','','<img alt=\"\" src=\"/media/images/double.jpg\" style=\"width: 320px; height: 448px; \" />','','',0,17,'2012-10-15 00:00:00',1,'2013-06-24 17:37:03',1,'','','','','','','','',0,'','','',4,NULL,'published'),(53,'hhhhhhhhhhh','hhhhhhhhhhh','','',NULL,'',0,20,'2013-01-28 00:00:00',1,'2013-01-28 10:31:26',1,'','','','','','','','vvvvvvvvvvvvvvv',0,'','','',4,NULL,'published'),(54,'dfdfddfddf','dfdfddfddf','','dffdfd','','',8,17,'2013-03-05 00:00:00',1,'2013-05-28 15:55:04',1,'','','','','','','','',0,'','','',4,NULL,'published'),(55,'sdsdsd','sdsdsd','','sdsdssdsdss','','',9,20,'2013-05-28 00:00:00',1,'0000-00-00 00:00:00',NULL,'','','','','','','','',0,'','','',4,NULL,'published'),(56,'sdsds','sdsds','','sdsdsds','xxxxx','',8,18,'2013-05-28 00:00:00',1,'2013-05-30 02:03:44',1,'','','','','','','','',0,'','','',4,NULL,'draft'),(57,'dfsdfds','dfsdfds','','dsfdfdfd','','',0,20,'2013-06-15 00:00:00',1,'0000-00-00 00:00:00',NULL,'','','','','','','','',0,'','','',4,NULL,'published'),(58,'ssfdgfxbvxcvv','ssfdgfxbvxcvv','','xvcxvxvvxvxv','','',0,19,'2013-06-15 00:00:00',1,'0000-00-00 00:00:00',NULL,'','','','','','','','',0,'','','',4,NULL,'published'),(59,'sgfsfgds','sgfsfgds','','fdsfdssfsdfsfdsfsdf','','',9,20,'2013-06-15 00:00:00',1,'0000-00-00 00:00:00',NULL,'','','','','','','','',0,'','','',4,NULL,'published'),(60,'sfgdfdsfdsfddfxcvcx','sfgdfdsfdsfddfxcvcx','','','','',8,17,'2013-06-15 00:00:00',1,'0000-00-00 00:00:00',NULL,'','','','','','','','',0,'','','',4,NULL,'published'),(61,'sfdfbxvbhntrweww','sfdfbxvbhntrweww','','ssffsdfsdfdsfd','','',9,19,'2013-06-15 00:00:00',1,'2013-06-25 11:17:54',1,'','','','','','','','',0,'','','',4,NULL,'published'),(67,'A surfer\'s paradise in Australia','a-surfer-s-paradise-in-australia','','efdfddfdf','','',0,20,'2013-06-25 00:00:00',1,'2013-06-25 11:18:28',1,'','','','','','','','',0,'','','',4,NULL,'published'),(68,'qqeqwe','qqeqwe','','qeqeqeqewqewq','','',0,20,'2013-06-25 00:00:00',1,'0000-00-00 00:00:00',NULL,'','','','','','','','',0,'','','',4,NULL,'published');
 
 /*Table structure for table `cu_events` */
 
@@ -140,21 +140,21 @@ DROP TABLE IF EXISTS `cu_events`;
 
 CREATE TABLE `cu_events` (
   `event_id` int(11) NOT NULL AUTO_INCREMENT,
-  `event_title` text,
-  `event_date` varchar(100) DEFAULT NULL,
-  `event_venue` text,
-  `event_time` varchar(100) DEFAULT NULL,
-  `event_details` text,
-  `event_image` text,
+  `event_title` text CHARACTER SET latin1,
+  `event_date` varchar(100) CHARACTER SET latin1 DEFAULT NULL,
+  `event_venue` text CHARACTER SET latin1,
+  `event_time` varchar(100) CHARACTER SET latin1 DEFAULT NULL,
+  `event_details` text CHARACTER SET latin1,
+  `event_image` text CHARACTER SET latin1,
   `event_show` tinyint(1) DEFAULT '1',
   `event_feature` tinyint(1) DEFAULT '0',
   `event_access` tinyint(1) DEFAULT NULL,
   `created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `added_by` varchar(255) DEFAULT NULL,
+  `added_by` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
   `modified_date` timestamp NULL DEFAULT NULL,
   `modified_by` varbinary(255) DEFAULT NULL,
   PRIMARY KEY (`event_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 /*Data for the table `cu_events` */
 
@@ -166,9 +166,9 @@ DROP TABLE IF EXISTS `cu_gallery`;
 
 CREATE TABLE `cu_gallery` (
   `gallery_id` int(11) NOT NULL AUTO_INCREMENT,
-  `gallery_name` varchar(255) DEFAULT NULL,
-  `gallery_image` text,
-  `gallery_description` text,
+  `gallery_name` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `gallery_image` text CHARACTER SET latin1,
+  `gallery_description` text CHARACTER SET latin1,
   `gallery_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `gallery_show` tinyint(1) DEFAULT '1',
   `gallery_access` tinyint(1) DEFAULT NULL,
@@ -176,7 +176,7 @@ CREATE TABLE `cu_gallery` (
   `gallery_order` int(11) DEFAULT NULL,
   `added_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`gallery_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 /*Data for the table `cu_gallery` */
 
@@ -188,10 +188,10 @@ DROP TABLE IF EXISTS `cu_images`;
 
 CREATE TABLE `cu_images` (
   `image_id` int(11) NOT NULL AUTO_INCREMENT,
-  `image_title` varchar(255) DEFAULT NULL,
+  `image_title` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
   `image_gallery` int(11) DEFAULT NULL,
-  `image_file` text,
-  `image_description` text,
+  `image_file` text CHARACTER SET latin1,
+  `image_description` text CHARACTER SET latin1,
   `image_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `image_access` int(11) DEFAULT NULL,
   `image_feature` tinyint(1) DEFAULT '0',
@@ -199,7 +199,7 @@ CREATE TABLE `cu_images` (
   `image_order` tinyint(1) DEFAULT NULL,
   `added_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`image_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=54 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;
 
 /*Data for the table `cu_images` */
 
@@ -211,11 +211,11 @@ DROP TABLE IF EXISTS `cu_newsletter_users`;
 
 CREATE TABLE `cu_newsletter_users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(255) DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
   `sub_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` tinyint(2) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 /*Data for the table `cu_newsletter_users` */
 
@@ -227,14 +227,14 @@ DROP TABLE IF EXISTS `cu_newsletters`;
 
 CREATE TABLE `cu_newsletters` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(355) DEFAULT NULL,
-  `content` text,
+  `title` varchar(355) CHARACTER SET latin1 DEFAULT NULL,
+  `content` text CHARACTER SET latin1,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `sent` tinyint(2) DEFAULT '0',
   `sent_date` timestamp NULL DEFAULT NULL,
   `sent_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Data for the table `cu_newsletters` */
 
@@ -246,23 +246,23 @@ DROP TABLE IF EXISTS `cu_sections`;
 
 CREATE TABLE `cu_sections` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  `alias` varchar(255) DEFAULT NULL,
-  `image` text,
-  `banner` text,
+  `name` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `title` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `alias` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `image` text CHARACTER SET latin1,
+  `banner` text CHARACTER SET latin1,
   `section_show` tinyint(2) DEFAULT '1',
   `main_nav` tinyint(2) DEFAULT '1',
-  `description` text,
-  `uniqueid` varchar(255) DEFAULT NULL,
+  `description` text CHARACTER SET latin1,
+  `uniqueid` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
   `ordering` int(11) DEFAULT NULL,
   `access` tinyint(3) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 /*Data for the table `cu_sections` */
 
-insert  into `cu_sections`(`id`,`name`,`title`,`alias`,`image`,`banner`,`section_show`,`main_nav`,`description`,`uniqueid`,`ordering`,`access`) values (20,'Services','','services','','',1,1,'&nbsp; bbbbbbbbbbbbbbb','',3,4),(18,'About us','','about-us','','',1,1,'',NULL,0,4),(19,'Contact us','','contact-us','','',1,1,'',NULL,3,1),(17,'Academics','','academics','','',1,1,'gjhgjghjgjg',NULL,0,4);
+insert  into `cu_sections`(`id`,`name`,`title`,`alias`,`image`,`banner`,`section_show`,`main_nav`,`description`,`uniqueid`,`ordering`,`access`) values (20,'Services','Services','services','','',1,1,'  bbbbbbbbbbbbbbb','',3,4),(18,'About us','','about-us','','',1,1,'',NULL,0,4),(19,'Contact us','','contact-us','','',1,1,'',NULL,3,1),(17,'Academics','','academics','','',1,1,'gjhgjghjgjg',NULL,0,4);
 
 /*Table structure for table `cu_slideshow` */
 
@@ -270,10 +270,10 @@ DROP TABLE IF EXISTS `cu_slideshow`;
 
 CREATE TABLE `cu_slideshow` (
   `slide_id` int(11) NOT NULL AUTO_INCREMENT,
-  `slide_title` varchar(255) DEFAULT NULL,
-  `slide_description` tinytext,
-  `slide_file` text,
-  `slide_link` varchar(500) DEFAULT NULL,
+  `slide_title` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `slide_description` tinytext CHARACTER SET latin1,
+  `slide_file` text CHARACTER SET latin1,
+  `slide_link` varchar(500) CHARACTER SET latin1 DEFAULT NULL,
   `slide_added_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `slide_access` tinyint(2) DEFAULT NULL,
   `slide_feature` tinyint(1) DEFAULT '0',
@@ -281,7 +281,7 @@ CREATE TABLE `cu_slideshow` (
   `slide_order` int(11) DEFAULT '0',
   `slide_added_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`slide_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 /*Data for the table `cu_slideshow` */
 
@@ -293,17 +293,17 @@ DROP TABLE IF EXISTS `cu_users`;
 
 CREATE TABLE `cu_users` (
   `userid` int(11) NOT NULL AUTO_INCREMENT,
-  `user_fullname` varchar(255) DEFAULT NULL,
-  `username` varchar(150) DEFAULT NULL,
-  `user_email` varchar(100) DEFAULT NULL,
-  `user_password` varchar(100) DEFAULT NULL,
-  `user_type` varchar(30) DEFAULT NULL,
-  `send_email` varchar(10) DEFAULT 'no',
+  `user_fullname` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `username` varchar(150) CHARACTER SET latin1 DEFAULT NULL,
+  `user_email` varchar(100) CHARACTER SET latin1 DEFAULT NULL,
+  `user_password` varchar(100) CHARACTER SET latin1 DEFAULT NULL,
+  `user_type` varchar(30) CHARACTER SET latin1 DEFAULT NULL,
+  `send_email` varchar(10) CHARACTER SET latin1 DEFAULT 'no',
   `register_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `lastvisit` datetime DEFAULT '0000-00-00 00:00:00',
-  `activation` varchar(50) DEFAULT 'inactive',
+  `activation` varchar(50) CHARACTER SET latin1 DEFAULT 'inactive',
   PRIMARY KEY (`userid`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 /*Data for the table `cu_users` */
 

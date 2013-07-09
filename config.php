@@ -44,6 +44,21 @@ define('CON_IMAGES_FOLDER', '../media/con_image/');
 define('CONTENT_OTHER_FILE_FOLDER', '../media/content/files/');
 
 
+
+/**********WEB SITE PATHS*************/
+
+/** section image folder */
+define('C_SECTION_BANNERS_FOLDER', 'media/sections/banners/');
+/** slide image folder */
+define('C_SLIDES_FOLDER', 'media/slides/');
+/** slide other file folder */
+define('C_CONTENT_OTHER_FILE_FOLDER', 'media/content/files/');
+/** content image folder */
+define('C_CONTENT_IMAGES_FOLDER', 'media/content/images/');
+/** category image folder */
+define('C_CATEGORY_IMAGES_FOLDER', 'media/categories/');
+/** Gallery folder */
+define('C_GALLERY_FOLDER', 'media/gallery/');
 /******************************/
 date_default_timezone_set("GMT");
 ?>

@@ -219,6 +219,29 @@ class curo{
 		}
 	}
 	
+	public function gallery_list(){//Get gallery information in array
+		$res=$this->dbcon->prepare("SELECT * FROM cu_gallery WHERE gallery_show='1' ".$this->access('gallery_access')." ORDER by gallery_order") or die($this->dbcon->errorInfo());
+		$res->execute();
+		$count=$res->rowCount();
+		if($count>0){
+			while($row=$res->fetch(PDO::FETCH_ASSOC)){
+				$galleylist[]=$row;
+			}
+		  return $galleylist;
+		}
+	}
+	
+	public function gallery_image_list($gallery){//Get gallery information in array
+		$res=$this->dbcon->prepare("SELECT * FROM cu_images WHERE image_gallery='$gallery' AND image_show='1' ".$this->access('image_access')." ORDER by image_order") or die($this->dbcon->errorInfo());
+		$res->execute();
+		$count=$res->rowCount();
+		if($count>0){
+			while($row=$res->fetch(PDO::FETCH_ASSOC)){
+				$galleylist[]=$row;
+			}
+		  return $galleylist;
+		}
+	}
 	
 }///end curo class
 ?>
