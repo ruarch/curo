@@ -1237,6 +1237,7 @@ if(isset($_POST['content_btn'])){// Process Content Add New
 	$introtext=clean_input($_POST['introtext']);
 	$excerpt=clean_input($_POST['excerpt']);
 	$content_frontpage=$_POST['content_frontpage'];
+	$content_headline=clean_input($_POST['content_headline']);
 	$content_picture='';
 	$content_audio='';
 	$content_video='';
@@ -1337,11 +1338,11 @@ if(isset($_POST['content_btn'])){// Process Content Add New
 				@unlink(CONTENT_OTHER_FILE_FOLDER.$_POST['e_content_other_file']);
 			}
 			mysql_query("set names 'utf8'");
-			$res=mysql_query("UPDATE cu_contents SET content_title='$content_title',content_alias='$content_alias',intro_text='$introtext',full_content='$full_content',excerpt='$excerpt',category_id='$content_category',section_id='$content_section',created='$created',created_by='$created_by',image='$content_picture',image_desc='$content_pic_desc',audio_file='$content_audio',audio_file_desc='$audio_desc',video_file='$content_video',video_file_desc='$video_desc',feature='$content_featured',metakey='$metakey',metadesc='$metadesc',metadata='$metadata',access='$content_access',published='$content_publish',modified='$modified',modified_by='$modified_by', other_file='$content_other_file', other_file_desc='$content_other_file_desc',content_source='$content_source' WHERE id='$content_id'") or die(mysql_error());
+			$res=mysql_query("UPDATE cu_contents SET content_headline='$content_headline',content_title='$content_title',content_alias='$content_alias',intro_text='$introtext',full_content='$full_content',excerpt='$excerpt',category_id='$content_category',section_id='$content_section',created='$created',created_by='$created_by',image='$content_picture',image_desc='$content_pic_desc',audio_file='$content_audio',audio_file_desc='$audio_desc',video_file='$content_video',video_file_desc='$video_desc',feature='$content_featured',metakey='$metakey',metadesc='$metadesc',metadata='$metadata',access='$content_access',published='$content_publish',modified='$modified',modified_by='$modified_by', other_file='$content_other_file', other_file_desc='$content_other_file_desc',content_source='$content_source' WHERE id='$content_id'") or die(mysql_error());
 			
 		}elseif($action=='add-new'){
 			mysql_query("set names 'utf8'");
-			$res=mysql_query("INSERT INTO cu_contents(content_title,content_alias,intro_text,full_content,excerpt,category_id,section_id,created,created_by,image,image_desc,audio_file,audio_file_desc,video_file,video_file_desc,feature,metakey,metadesc,metadata,access,published,other_file,other_file_desc,content_source)VALUES('$content_title','$content_alias','$introtext','$full_content','$excerpt','$content_category','$content_section','$created','$created_by','$content_picture','$content_pic_desc','$content_audio','$audio_desc','$content_video','$video_desc','$content_featured','$metakey','$metadesc','$metadata','$content_access','$content_publish','$content_other_file','$content_other_file_desc','$content_source')") or die(mysql_error());
+			$res=mysql_query("INSERT INTO cu_contents(content_title,content_alias,intro_text,full_content,excerpt,category_id,section_id,created,created_by,image,image_desc,audio_file,audio_file_desc,video_file,video_file_desc,feature,metakey,metadesc,metadata,access,published,other_file,other_file_desc,content_source,content_headline)VALUES('$content_title','$content_alias','$introtext','$full_content','$excerpt','$content_category','$content_section','$created','$created_by','$content_picture','$content_pic_desc','$content_audio','$audio_desc','$content_video','$video_desc','$content_featured','$metakey','$metadesc','$metadata','$content_access','$content_publish','$content_other_file','$content_other_file_desc','$content_source','$content_headline')") or die(mysql_error());
 		}
 		
 		
@@ -1353,7 +1354,7 @@ if(isset($_POST['content_btn'])){// Process Content Add New
 					if($content_frontpage=='1'){
 			
 							if(isset($frontp_order)){
-								$chkfp=mysql_query("SELECT * FROM cu_content_frontpage WHERE ordering='$frontp_order'") or die(mysql_error());
+								$chkfp=mysql_query("SELECT SQL_CACHE * FROM cu_content_frontpage WHERE ordering='$frontp_order'") or die(mysql_error());
 	 							$fcount=mysql_num_rows($chkfp);
 	 							$frow=mysql_fetch_array($chkfp);
 	 							if($fcount>0){
@@ -1369,13 +1370,13 @@ if(isset($_POST['content_btn'])){// Process Content Add New
 		}elseif($action=='edit'){
 					$art_id=$content_id;
  					if($content_frontpage=='1'){
- 					$chkfp=mysql_query("SELECT * FROM cu_content_frontpage WHERE content_id='$art_id'") or die(mysql_error());
+ 					$chkfp=mysql_query("SELECT SQL_CACHE * FROM cu_content_frontpage WHERE content_id='$art_id'") or die(mysql_error());
  					$chkfp_row=mysql_fetch_array($chkfp);
  					$chkfp_count=mysql_num_rows($chkfp);
  					if($chkfp_count==0){
 						mysql_query("set names 'utf8'");
 						if(isset($frontp_order)){
-							$chkfp=mysql_query("SELECT * FROM cu_content_frontpage WHERE ordering='$frontp_order'") or die(mysql_error());
+							$chkfp=mysql_query("SELECT SQL_CACHE * FROM cu_content_frontpage WHERE ordering='$frontp_order'") or die(mysql_error());
 							$chkfp_row=mysql_fetch_array($chkfp);
  							$fcount=mysql_num_rows($chkfp);
  							$frow=mysql_fetch_array($chkfp);
@@ -1387,7 +1388,7 @@ if(isset($_POST['content_btn'])){// Process Content Add New
 
  					}else{
  						if(isset($frontp_order)){
- 							$chkfp=mysql_query("SELECT * FROM cu_content_frontpage WHERE ordering='$frontp_order'") or die(mysql_error());
+ 							$chkfp=mysql_query("SELECT SQL_CACHE * FROM cu_content_frontpage WHERE ordering='$frontp_order'") or die(mysql_error());
  							$chkfp_row=mysql_fetch_array($chkfp);
  							$fcount=mysql_num_rows($chkfp);
  							$frow=mysql_fetch_array($chkfp);
@@ -1425,6 +1426,7 @@ if(isset($_POST['content_btn'])){// Process Content Add New
 			$content_publish='';
 			$content_category='';
 			$content_access='';
+			$content_headline='';
 			$content_featured='';
 			$content_title='';
 			$content_alias='';

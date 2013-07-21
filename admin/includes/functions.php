@@ -478,27 +478,37 @@ if(!empty($q)){
 		$url="contents.php?p=";//Url for pagination
 	}
 }
-
+$where='';
 $q=str_replace(" ","%",$q);
 $pagination->setPage($page);
 $pagination->setSize($size);
 $pagination->setLink($url);
-$sql="SELECT * FROM cu_contents  ";
+if(isset($_GET['secid'])){
+		$where=" WHERE ";		
+}elseif(isset($_GET['catid'])){
+		$where=" WHERE ";
+}
+if(!empty($q)){
+$where=" WHERE ";
+	}
+$sql="SELECT * FROM cu_contents $where ";
 
 if(isset($_GET['secid'])){
-			$sql.="WHERE section_id='$secid' ";
+		$sql.=" section_id='$secid' ";
+		
 	}elseif(isset($_GET['catid'])){
-			$sql.="WHERE category_id='$catid'  ";
-
+		$sql.=" category_id='$catid' ";	
+}else{
+	$sql.=" ";
 }
 if(!empty($q)){
 	$q=clean_input($q);
 
-$sql.=" AND content_title LIKE '%$q%' OR content_alias LIKE '%$q%'";
+$sql.=" content_title LIKE '%$q%' OR content_alias LIKE '%$q%'";
 }
 $sql.=" ORDER BY id DESC";
 //Pagination Res
-
+//echo $sql;
 $resnum=mysql_query($sql) or die(mysql_error());
 $total_records=mysql_num_rows($resnum);//total number of records
 $pagination->setTotalRecords($total_records);

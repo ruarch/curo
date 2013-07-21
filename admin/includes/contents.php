@@ -23,6 +23,7 @@
 			$content_access=$row['access'];
 			$content_featured=$row['feature'];
 			$content_title=$row['content_title'];
+      $content_headline=$row['content_headline'];
 			$content_alias=$row['content_alias'];
 			$full_content=$row['full_content'];
 			$content_pic_desc=$row['image_desc'];
@@ -39,7 +40,7 @@
 			$content_video=$row['video_file'];
       $content_other_file_desc=$row['other_file_desc'];
       $content_other_file=$row['other_file'];
-      $fo_res=mysql_query("SELECT * FROM cu_content_frontpage WHERE content_id='$id'") or die(mysql_error());
+      $fo_res=mysql_query("SELECT SQL_CACHE * FROM cu_content_frontpage WHERE content_id='$id'") or die(mysql_error());
       $fo_row=mysql_fetch_array($fo_res);
       $frontp_order=$fo_row['ordering'];
 
@@ -140,9 +141,9 @@
                     <input type="text" name="content_source" class="input-large" placeholder="Content source"  value="<?php echo @$content_source;?>"/>
               </div>
 
-               <div class="span3" >
-                  <label>Source:</label>
-                    <input type="text" name="content_source" class="input-large" placeholder="Content source"  value="<?php echo @$content_source;?>"/>
+               <div class="span*" >
+                  <label>Headline:</label>
+                    <input type="text" name="content_headline" class="span4" placeholder="Content Headerline"  value="<?php echo @$content_headline;?>"/>
               </div>
           </div>
        
