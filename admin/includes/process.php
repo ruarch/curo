@@ -1217,7 +1217,10 @@ if(isset($_POST['content_btn'])){// Process Content Add New
 	$validated=true;
 	$pubished_date=$_POST['pubished_date'];
 	$content_source=clean_input($_POST['content_source']);
-	$created=create_timestamp($pubished_date);
+	$time=date("H:i:s",time());
+	$datep=date("Y-m-d",strtotime($pubished_date));
+	$datep=$datep.' '.$time;
+	$created=create_timestamp($datep);
 	$created_by=$_SESSION['userid_admin'];
 	$content_section=$_POST['content_section'];
 	$content_category=$_POST['content_category'];
@@ -1226,7 +1229,7 @@ if(isset($_POST['content_btn'])){// Process Content Add New
 	$content_title=clean_input($_POST['content_title']);
 	$content_alias=clean_input($_POST['content_alias']);
 	$content_publish=$_POST['content_publish'];
-	$full_content=mysql_escape_string($_POST['editor1']);
+	$full_content=$_POST['editor1'];
 	$content_pic_desc=clean_input($_POST['content_pic_desc']);
 	$video_desc=clean_input($_POST['video_desc']);
 	$audio_desc=clean_input($_POST['audio_desc']);
